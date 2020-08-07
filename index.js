@@ -14,24 +14,29 @@ app.set('views','./views')
  })
 var users = [
     {id:1,name:'Quang'},
-    {id:2,name:'Quang2'},
+    {id:2,name:'Hai'},
     {id:3,name:'Quang3'}
     ]
 // Iteration
 
  app.get('/users',function(req,res){
   res.render('users/index',{
-    users:users
+    users:[]
   })
  })
 
  app.get('/users/search', (req,res) => {
-  // search and return here
-  console.log(req.query);
-  res.render('users/search',{
-    users:users
+  var name_search = req.query.name // lấy giá trị của key name trong query parameters gửi lên
+
+  var result = users.filter( (user) => {
+    // tìm kiếm chuỗi name_search trong user name. 
+    // Lưu ý: Chuyển tên về cùng in thường hoặc cùng in hoa để không phân biệt hoa, thường khi tìm kiếm
+    return user.name.toLowerCase().indexOf(name_search.toLowerCase()) !== -1
   })
 
+  res.render('users/index', {
+    users: result // render lại trang users/index với biến users bây giờ chỉ bao gồm các kết quả phù hợp
+  });
 })
 
  app.listen(port,function(){

@@ -1,3 +1,6 @@
+form.seach-form(action="/users/search")
+  input(name="name", type="text", placeholder="name")
+  input(type="submit")   
 ul
   each user in users
     li= user.name
