@@ -12,18 +12,28 @@ app.set('views','./views')
     name: 'QQQ'
   })
  })
-
-// Iteration
-
- app.get('/users',function(req,res){
-  res.render('users/index',{
-    users:[
+var users = [
     {id:1,name:'Quang'},
     {id:2,name:'Quang2'},
     {id:3,name:'Quang3'}
     ]
+// Iteration
+
+ app.get('/users',function(req,res){
+  res.render('users/index',{
+    users:users
   })
  })
+
+ app.get('/users/search', (req,res) => {
+  // search and return here
+  console.log(req.query);
+  res.render('users/search',{
+    users:users
+  })
+
+})
+
  app.listen(port,function(){
   console.log('open in port: '+port)
  })
