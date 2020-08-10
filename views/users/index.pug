@@ -9,11 +9,13 @@ form.seach-form(action="/users/search",method = "get")
           tr
             th Name
             th Phone
+            th Action
         tbody
           each user in users
             tr
               td= user.name
               td= user.phone
+              td = a(href='#') View
     else
       p No user to display
 a(href='users/create') Create user
