@@ -1,6 +1,6 @@
 form.seach-form(action="/users/search",method = "get")
   input(name="q", type="text", placeholder="name")
-  input(type="submit")
+  input(type="submit",value = "Search")
 .users
   h5 All users
     if users.length > 0
@@ -18,4 +18,4 @@ form.seach-form(action="/users/search",method = "get")
               td = a(href='#') View
     else
       p No user to display
-a(href='users/create') Create user
+a(href='/users/create') Create user
