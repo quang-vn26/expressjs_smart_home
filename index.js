@@ -1,36 +1,35 @@
 var express = require('express')
+var bodyParser = require('body-parser')
 var app = express()
 var port = 3000;
 app.set('view engine','pug')
 app.set('views','./views')
 
- // app.get('/',function(req,res){
- //  res.send('Hello coderx')
- // })
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
  app.get('/',function(req,res){
   res.render('index',{
     name: 'QQQ'
   })
  })
 var users = [
-    {id:1,name:'Quang'},
-    {id:2,name:'Hai'},
-    {id:3,name:'Quang3'}
+    {id:1,name:'Quang',phone :'123123'},
+    {id:2,name:'Hai',phone:'1231231234'},
+    {id:3,name:'Quang3',phone:'1231231313'}
     ]
 // Iteration
 
  app.get('/users',function(req,res){
   res.render('users/index',{
-    users:[]
+    users:users
   })
  })
 
  app.get('/users/search', (req,res) => {
-  var name_search = req.query.name // lấy giá trị của key name trong query parameters gửi lên
-
+  console.log(req.query);
+  var name_search = req.query.q 
   var result = users.filter( (user) => {
-    // tìm kiếm chuỗi name_search trong user name. 
-    // Lưu ý: Chuyển tên về cùng in thường hoặc cùng in hoa để không phân biệt hoa, thường khi tìm kiếm
     return user.name.toLowerCase().indexOf(name_search.toLowerCase()) !== -1
   })
 
@@ -39,6 +38,17 @@ var users = [
   });
 })
 
+
+ app.get('/users/create',function(req,res){
+  res.render('users/create')
+})
+
+  app.post('/users/create',function(req,res){
+    console.log(req.body)
+    users.push(req.body)
+    res.redirect('/users');
+})
+ //----------------------
  app.listen(port,function(){
   console.log('open in port: '+port)
  })

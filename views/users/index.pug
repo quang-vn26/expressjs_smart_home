@@ -1,6 +1,19 @@
-form.seach-form(action="/users/search")
-  input(name="name", type="text", placeholder="name")
-  input(type="submit")   
-ul
-  each user in users
-    li= user.name
+form.seach-form(action="/users/search",method = "get")
+  input(name="q", type="text", placeholder="name")
+  input(type="submit")
+.users
+  h5 All users
+    if users.length > 0
+      table
+        thead
+          tr
+            th Name
+            th Phone
+        tbody
+          each user in users
+            tr
+              td= user.name
+              td= user.phone
+    else
+      p No user to display
+a(href='users/create') Create user
