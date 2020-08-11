@@ -1,9 +1,12 @@
 h1 Create user
 a(href="/users/") view user
-form.add-user-form(action="/users/create",method = "POST")
+form(action="/users/create",method = "POST")
+  lable Id
+  input(name="id",type ="number")
+  br
   lable Name
-  input(name='name',type ='text')
+  input(name="name",type ="text")
   br
   lable Phone
-  input(name='phone',type ='number')
+  input(name="phone",type ="number")
   button Create

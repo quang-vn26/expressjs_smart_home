@@ -4,18 +4,18 @@ form.seach-form(action="/users/search",method = "get")
 .users
   h5 All users
     if users.length > 0
-      table
-        thead
-          tr
-            th Name
-            th Phone
-            th Action
-        tbody
-          each user in users
-            tr
-              td= user.name
-              td= user.phone
-              td = a(href='#') View
+      ul
+        each user in users
+          li 
+            span= user.id
+            span &nbsp;
+            span=user.name
+            span &nbsp;
+            span=user.phone
+            span &nbsp;
+            a(href='/users/'+user.id) View
+            span &nbsp;
+            a(href='/users/delete/'+user.id) Delete
     else
       p No user to display
 a(href='/users/create') Create user

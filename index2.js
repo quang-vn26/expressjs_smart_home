@@ -41,12 +41,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
   });
 })
 
-
- app.get('/users/create',function(req,res){
-  res.render('users/create')
-})
-
   app.get('/users/:id',function(req,res){
+    // Route parameters: thong so duong truyen
   var id = parseInt(req.params.id)
   var user = db.get('users').find({id:id}).value()
   res.render('users/view',{
@@ -54,20 +50,26 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
   })
 })
 
-  app.get('/users/delete/:id',function(req,res){
-    // Route parameters: thong so duong truyen
-  var id = parseInt(req.params.id)
-  var user = db.get('users').find({id:id}).value()
-  var user = db.get('users').remove({id:id}).write()
-  res.redirect('/users')
+   app.get('/users/create',function(req,res){
+  res.render('users/create')
 })
-
 
   app.post('/users/create',function(req,res){
     console.log(req.body)
     db.get('users').push(req.body).write()
     res.redirect('/users');
 })
+
+  app.get('/users/delete/:id',function(req,res){
+    // Route parameters: thong so duong truyen
+  var id = parseInt(req.params.id)
+  var user = db.get('users').find({id:id}).value()
+  var user = db,get('users').remove({id:id}).write()
+  res.render('users/view',{
+    user:user
+  })
+})
+
  //----------------------
  app.listen(port,function(){
   console.log('open in port: '+port)
