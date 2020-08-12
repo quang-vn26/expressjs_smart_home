@@ -1,3 +1,8 @@
-ul
-  each user in users
-    li= user.name
+extends ../layouts/common.pug
+block title
+  title search
+block content
+  div.container
+    ul
+      each user in users
+        li= user.name

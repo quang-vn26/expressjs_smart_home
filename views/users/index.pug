@@ -1,23 +1,28 @@
-form.seach-form(action="/users/search",method = "get")
-  input(name="q", type="text", placeholder="name")
-  input(type="submit",value = "Search")
-.users
-  h5 All users
-    if users.length > 0
-      ul
-        each user in users
-          li 
-            span= user.id
-            span &nbsp;
-            span=user.name
-            span &nbsp;
-            span=user.phone
-            span &nbsp;
-            a(href='/users/'+user.id) View
-            span &nbsp;
-            a(href='/users/delete/'+user.id) Delete
-    else
-      p No user to display
-a(href='/users/create') Create user
-br
-a(href='/') Home
+extends ../layouts/common.pug
+block title
+  title users
+block content
+  div.container 
+    form.seach-form(action="/users/search",method = "get",class = 'form-group')
+      input(name="q", type="text", placeholder="name",class='form-control')
+      input(type="submit",value = "Search",class='btn btn-primary ml-3')
+    .users
+      h5 All users
+        if users.length > 0
+          ul
+            each user in users
+              li 
+                span= user.id
+                span &nbsp;
+                span=user.name
+                span &nbsp;
+                span=user.phone
+                span &nbsp;
+                a(href='/users/'+user.id) View
+                span &nbsp;
+                a(href='/users/delete/'+user.id) Delete
+        else
+          p No user to display
+    a(href='/users/create') Create user
+    br
+    a(href='/') Home

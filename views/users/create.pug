@@ -1,9 +1,14 @@
-h1 Create user
-a(href="/users/") view user
-form(action="/users/create",method = "POST")
-  lable Name
-  input(name="name",type ="text",value="name")
-  br
-  lable Phone
-  input(name="phone",type ="number",value="123123")
-  button Create
+extends ../layouts/common.pug
+block content
+  body 
+    div.container
+        h1 Create user
+        a(href="/users/") view user
+        //-div.row
+        form(action="/users/create",method = "POST",class="form-group")
+          lable Name
+          input(name="name",type ="text",value="name",class="form-control")
+          lable Phone
+          input(name="phone",type ="number",value="123123",class="form-control")
+          br
+          button(class='btn btn-primary') Create
