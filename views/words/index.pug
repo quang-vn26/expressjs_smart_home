@@ -1,0 +1,23 @@
+form.seach-form(action="/words/search",method = "get")
+  input(name="q", type="text", placeholder="name")
+  input(type="submit",value = "Search")
+.words
+  h5 All words
+    if words.length > 0
+      ul
+        -var i = 1
+        each word in words
+          li 
+            span= i
+            -i++
+            span &nbsp;
+            span=word.name
+            span &nbsp;
+            span=word.date
+            span &nbsp;
+            a(href='/words/'+word.id) View
+            span &nbsp;
+            a(href='/words/delete/'+word.id) Delete
+    else
+      p No word to display
+a(href='/words/create') Create word
