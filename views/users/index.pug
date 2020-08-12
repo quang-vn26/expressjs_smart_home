@@ -2,27 +2,25 @@ extends ../layouts/common.pug
 block title
   title users
 block content
-  div.container 
-    form.seach-form(action="/users/search",method = "get",class = 'form-group')
-      input(name="q", type="text", placeholder="name",class='form-control')
-      input(type="submit",value = "Search",class='btn btn-primary ml-3')
-    .users
-      h5 All users
-        if users.length > 0
-          ul
-            each user in users
-              li 
-                span= user.id
-                span &nbsp;
-                span=user.name
-                span &nbsp;
-                span=user.phone
-                span &nbsp;
-                a(href='/users/'+user.id) View
-                span &nbsp;
-                a(href='/users/delete/'+user.id) Delete
-        else
-          p No user to display
-    a(href='/users/create') Create user
-    br
-    a(href='/') Home
+    h2 Users
+      a.ml-2.btn.btn-primary(href="/users/create") New
+    .d-flex.align-items-center
+      form.ml-auto.seach-form(action="/users/search",method = "get",class = 'form-group d-flex')
+        input(name="q", type="text", placeholder="name",class='form-control')
+        input(type="submit",value = "Search",class='btn btn-primary ml-3')
+    table.table
+      tr
+        th Name
+        th Phone
+        th Action
+        th Action
+  
+      each user in users
+        tr
+          td= user.id
+          td= user.name
+          td
+            a(href='/users/'+user.id) View
+          td 
+            a(href='/users/delete/'+user.id,class='text-danger') Delete
+      

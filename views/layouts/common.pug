@@ -1,8 +1,27 @@
 html
   head
     block title
-    //-link(rel="stylesheet",href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
-    link(rel="stylesheet",href="/css/bootstrap.min.css")
-  body 
-    block content
-    block footer
+    link(rel="stylesheet",href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    //- link(rel="stylesheet",href="/css/bootstrap.min.css")
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarTogglerDemo03' aria-controls='navbarTogglerDemo03' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      a.navbar-brand(href='#') Navbar
+      #navbarTogglerDemo03.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+          li.nav-item.active
+            a.nav-link(href='/')
+              | Home 
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='/users') Users
+          li.nav-item
+            a.nav-link(href='/words') Words
+        form.form-inline.my-2.my-lg-0(action="/users/search")
+          input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search' name="q")
+          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+    .container      
+      block content
+      block footer
