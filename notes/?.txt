@@ -5,3 +5,6 @@ la nhung doan ma trung gian nam giua req va res
 tach ra tu 2 function xong roi dung middware
 vi du:
 validate: sac nhan
+B1i 19: 
+Cach debug:
+them inspect: quan sat vao nodemon
