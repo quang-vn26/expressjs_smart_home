@@ -14,7 +14,7 @@ app.set('views','./views')
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(cookieParser())
+app.use(cookieParser('qwertyuiop'))
 app.use(express.static('public'))
  //router
 app.use('/users',authMiddleware.requireAuth,userRouter)

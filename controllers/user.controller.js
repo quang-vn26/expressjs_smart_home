@@ -4,7 +4,7 @@
 // }
 // module.exports.a = 1
 // module.exports.b = 2
-
+var md5 = require('md5')
 var shortid = require('shortid');
 var db = require('../db')
 
@@ -51,6 +51,7 @@ module.exports.delete = function(req,res){
 
 module.exports.postCreate = function(req,res){
     req.body.id = shortid.generate();
+    req.body.pw = md5(req.body.pw)
     db.get('users').push(req.body).write()
     res.redirect('/users');
 }

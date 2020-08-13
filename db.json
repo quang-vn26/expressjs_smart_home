@@ -1,71 +1,28 @@
 {
   "users": [
     {
-      "name": "name",
-      "phone": "123123",
-      "id": "jNtHxIefK",
-      "email": "name",
-      "pw": "b068931cc450442b63f5b3d276ea4297"
-    },
-    {
-      "name": "name",
-      "phone": "123123",
-      "id": "djvHqno3Z"
-    },
-    {
-      "name": "name",
-      "phone": "123123",
-      "id": "kLogrpEth"
-    },
-    {
-      "name": "name",
-      "phone": "123123",
-      "id": "3pTKRi_xx"
-    },
-    {
-      "name": "name",
-      "phone": "123123",
-      "id": "cyVBsSkz6"
-    },
-    {
-      "name": "as",
-      "phone": "123123",
-      "id": "WxFtXfEi5"
-    },
-    {
-      "name": "a",
-      "phone": "1212",
-      "id": "l9C15trwo"
-    },
-    {
-      "name": "qweqe",
-      "phone": "123123",
-      "pw": "qeqeqe",
-      "id": "GNZraEuw7"
-    },
-    {
-      "name": "1",
-      "phone": "1",
-      "pw": "1",
-      "id": "KutacNvz1"
-    },
-    {
       "name": "2",
       "phone": "2",
       "pw": "2",
       "id": "069ojIPlU"
     },
     {
-      "name": "3",
-      "phone": "3",
-      "pw": "3",
+      "name": "name",
+      "email": "name",
+      "pw": "b068931cc450442b63f5b3d276ea4297",
       "id": "VAnSZzqGD"
     },
     {
-      "name": "qeqe",
-      "email": "qweqe@q",
-      "pw": "qqweqe",
+      "name": "name",
+      "email": "name@gmail.com",
+      "pw": "b068931cc450442b63f5b3d276ea4297",
       "id": "zS_H3MuOs"
+    },
+    {
+      "name": "1",
+      "email": "1@gmail.com",
+      "pw": "c4ca4238a0b923820dcc509a6f75849b",
+      "id": "3pshQwBtU"
     }
   ],
   "words": [
