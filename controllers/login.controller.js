@@ -1,4 +1,5 @@
 var shortid = require('shortid');
+var md5 = require('md5')
 var db = require('../db')
 
 module.exports.index = function(req,res){
@@ -24,7 +25,8 @@ module.exports.login = function(req,res){
     return;
   }
 
-  if(user.pw != password){
+  var hashPassword = md5(password)
+  if(user.pw != hashPassword){
     res.render('login/index', {
         errors: [
           'Password does not true.'

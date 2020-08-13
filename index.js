@@ -21,7 +21,7 @@ app.use('/users',authMiddleware.requireAuth,userRouter)
 app.use('/words',authMiddleware.requireAuth,wordRouter)
 app.use('/',loginRouter)
 
- app.get('/',function(req,res){
+ app.get('/',authMiddleware.requireAuth,function(req,res){
   res.render('index',{
     name: 'QQQ'
   })
