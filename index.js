@@ -1,5 +1,6 @@
 var express = require('express')
 var bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
 
 var userRouter = require('./routes/user.route')
 var wordRouter =  require('./routes/words.route')
@@ -11,18 +12,18 @@ app.set('views','./views')
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
+app.use(cookieParser())
 app.use(express.static('public'))
-//vi du: /img/2.jpg
+ //router
+app.use('/users',userRouter)
+app.use('/words',wordRouter)
+app.use('/login',loginRouter)
+
  app.get('/',function(req,res){
   res.render('index',{
     name: 'QQQ'
   })
  })
- //router
-app.use('/users',userRouter)
-app.use('/words',wordRouter)
-app.use('/login',loginRouter)
  //----------------------
  app.listen(port,function(){
   console.log('open in port: '+port)
