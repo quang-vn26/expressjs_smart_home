@@ -12,9 +12,9 @@ html
             .alert.alert-danger= error
           //- each erro
         form(action="/login",method = "POST",class="form-group")
-          lable Name
-          input(name="name",type ="text",value=values ? values.name : "",class="form-control")
+          lable Email
+          input(name="email",type ="text",value=values ? values.email : "",class="form-control")
           lable Password
-          input(name="pw",type ="text",value=values ? values.pw : "",class="form-control")
+          input(name="pw",type ="password",value=values ? values.pw : "",class="form-control")
           br
           button(class='btn btn-primary') Login

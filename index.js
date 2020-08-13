@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser')
 var userRouter = require('./routes/user.route')
 var wordRouter =  require('./routes/words.route')
 var loginRouter = require('./routes/login.route')
+var authMiddleware = require('./middleware/auth.middleware.js')
+
 var app = express()
 var port = 3000;
 app.set('view engine','pug')
@@ -15,9 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(cookieParser())
 app.use(express.static('public'))
  //router
-app.use('/users',userRouter)
-app.use('/words',wordRouter)
-app.use('/login',loginRouter)
+app.use('/users',authMiddleware.requireAuth,userRouter)
+app.use('/words',authMiddleware.requireAuth,wordRouter)
+app.use('/',loginRouter)
 
  app.get('/',function(req,res){
   res.render('index',{
