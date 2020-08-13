@@ -10,3 +10,6 @@ Cach debug:
 them inspect: quan sat vao nodemon
 bai 20:
 Phan trang
+Bài 23 - CSRF Attack
+CSRF ( Cross Site Request Forgery) là kỹ thuật tấn công bằng cách sử dụng quyền chứng thực của người dùng đối với một website. CSRF là kỹ thuật tấn công vào người dùng, dựa vào đó hacker có thể thực thi những thao tác phải yêu cầu sự chứng thực. Hiểu một cách nôm na, đây là kỹ thuật tấn công dựa vào mượn quyền trái phép.
+CSRF còn được gọi là "session riding", "XSRF"

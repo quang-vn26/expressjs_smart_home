@@ -887,5 +887,13 @@
         "23215765-369d-487c-b3c5-b5d2696ae066": 2
       }
     }
+  ],
+  "transfers": [
+    {
+      "id": "djwbP5sRp",
+      "amount": 123130,
+      "accountId": "1213123",
+      "userId": "kxQqkTHt1"
+    }
   ]
 }
