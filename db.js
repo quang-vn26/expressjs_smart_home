@@ -7,4 +7,6 @@ db = low(adapter)
 db.defaults({ users:[]}).write()
 db.defaults({ words:[]}).write()
 db.defaults({ products:[]}).write()
+db.defaults({ users: [], sessions: [] })
+  .write();
 module.exports = db

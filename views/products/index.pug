@@ -17,7 +17,8 @@ block content
             h5.card-title= product.name
             p.card-text= product.description
             p.card-text= product.price
-            a.btn.btn-primary(href='#') Add to cart
+            //- a.btn.btn-primary(href='#') Add to 
+            a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
 
   nav(aria-label='Page navigation example')
     ul.pagination

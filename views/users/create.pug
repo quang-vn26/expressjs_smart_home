@@ -7,13 +7,17 @@ block content
           each error in errors
             .alert.alert-danger= error
           //- each erro
-        form(action="/users/create",method = "POST",class="form-group")
-          lable Name
-          input(name="name",type ="text",value=values ? values.name : "",class="form-control")
-          lable Email
-          input(name="email",type ="email",value=values ? values.phone : "",class="form-control")
-          br
-          lable Password
-          input(name="pw",type ="text",value=values ? values.pw : "",class="form-control")
-          br
+        form(action="/users/create",method = "POST",enctype="multipart/form-data")
+          .form-group
+            lable(for="name") Name
+            input#name(name="name",type ="text",value=values ? values.name : "",class="form-control")
+          .form-group    
+            lable(for="email") Email
+            input#email(name="email",type ="email",value=values ? values.phone : "",class="form-control")
+          .form-group    
+            lable(for="pw") Password
+            input#pw(name="pw",type ="password",value=values ? values.pw : "",class="form-control")
+          .form-group
+            label(for="avatar") Avatar
+            input#avatar.form-control-file(name="avatar", type="file")   
           button(class='btn btn-primary') Create
