@@ -1,0 +1,37 @@
+extends ../layouts/common
+
+block content
+  h1 Products
+
+  .d-flex.align-items-center
+    form.ml-auto(action="/products/search", method="GET", class="d-flex")
+      input(type="text", name="q", class="form-control")
+      button(class="btn btn-primary ml-2") Search
+
+  .row
+    each product in products
+      .col-sm-6.col-md-4.col-lg-3
+        .card.mb-3
+          img.card-img-top(src=product.image)
+          .card-body
+            h5.card-title= product.name
+            p.card-text= product.description
+            p.card-text= product.price
+            a.btn.btn-primary(href='#') Add to cart
+
+  nav(aria-label='Page navigation example')
+    ul.pagination
+      -var page_p=page-1
+      -var page_n = page+1
+      li.page-item
+        a.page-link(href='/products?p='+page_p) Previous
+      li.page-item
+        a.page-link(href='/products?p=1') 1
+      li.page-item
+        a.page-link(href='/products?p=2') 2
+      li.page-item
+        a.page-link(href='/products?p=3') 3
+      li.page-item
+        a.page-link(href='/products?p='+page_n) Next
+            
+

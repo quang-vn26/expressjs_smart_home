@@ -1,6 +1,5 @@
-
 require('dotenv').config()
-console.log(process.env.SESSION_SECRECT)
+// console.log(process.env.SESSION_SECRECT)
 var express = require('express')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
@@ -8,6 +7,8 @@ var cookieParser = require('cookie-parser')
 var userRouter = require('./routes/user.route')
 var wordRouter =  require('./routes/words.route')
 var loginRouter = require('./routes/login.route')
+var productRouter = require('./routes/product.route')
+
 var authMiddleware = require('./middleware/auth.middleware.js')
 
 var app = express()
@@ -24,6 +25,7 @@ app.use(express.static('public'))
 app.use('/users',authMiddleware.requireAuth,userRouter)
 app.use('/words',authMiddleware.requireAuth,wordRouter)
 app.use('/',loginRouter)
+app.use('/products',authMiddleware.requireAuth,productRouter)
 
  app.get('/',authMiddleware.requireAuth,function(req,res){
   res.render('index',{

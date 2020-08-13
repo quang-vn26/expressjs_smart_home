@@ -1,0 +1,22 @@
+extends ../layouts/common.pug
+block content
+  body 
+      div.container
+        h1 Create product
+        if errors
+          each error in errors
+            .alert.alert-danger= error
+          //- each erro
+        form(action="/products/create",method = "POST",class="form-group")
+          lable Name
+          input(name="name",type ="text",value=values ? values.name : "",class="form-control")
+          lable Image
+          input(name="image",type ="text",value=values ? values.phone : "",class="form-control")
+          br
+          lable Description
+          input(name="description",type ="text",value=values ? values.pw : "",class="form-control")
+          br
+          lable Price
+          input(name="price",type ="text",value=values ? values.pw : "",class="form-control")
+          br
+          button(class='btn btn-primary') Create

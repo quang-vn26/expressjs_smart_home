@@ -8,3 +8,5 @@ validate: sac nhan
 B1i 19: 
 Cach debug:
 them inspect: quan sat vao nodemon
+bai 20:
+Phan trang

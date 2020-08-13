@@ -1,0 +1,8 @@
+extends ../layouts/common.pug
+block title
+  title search
+block content
+    //- div.container
+    ul
+      each product in products
+        li= product.name
