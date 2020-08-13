@@ -3,6 +3,7 @@ var bodyParser = require('body-parser')
 
 var userRouter = require('./routes/user.route')
 var wordRouter =  require('./routes/words.route')
+var loginRouter = require('./routes/login.route')
 var app = express()
 var port = 3000;
 app.set('view engine','pug')
@@ -21,6 +22,7 @@ app.use(express.static('public'))
  //router
 app.use('/users',userRouter)
 app.use('/words',wordRouter)
+app.use('/login',loginRouter)
  //----------------------
  app.listen(port,function(){
   console.log('open in port: '+port)

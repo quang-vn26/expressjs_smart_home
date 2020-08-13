@@ -1,0 +1,7 @@
+Bai 13: 
+-Middkeware la gi?
+la nhung doan ma trung gian nam giua req va res
+-cach dung ntn ?
+tach ra tu 2 function xong roi dung middware
+vi du:
+validate: sac nhan
