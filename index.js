@@ -21,7 +21,7 @@ var authMiddleware = require('./middlewares/auth.middleware.js')
 var sessionMiddleware = require('./middlewares/session.middleware');
 
 var app = express()
-var port = 3000;
+var port = process.env.PORT || 3000;
 app.set('view engine','pug')
 app.set('views','./views')
 
