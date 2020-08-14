@@ -4,19 +4,18 @@ var db = require('../db')
 
 var Product = require('../models/product.model');
 
-module.exports.index = async function (req,res) {
-
-  // Product.find().then(function (products) {
-  //   res.render('products/index',{
-  //     products:products
-  //   })
-  // })
-
+module.exports.index = async function (req,res,next) {
   var page = parseInt(req.query.p) || 1 //n
   var perPage = 8;
   var start = (page-1)*perPage
   var end = page*perPage
-
+  // try {
+  //   page.poo()
+  // } catch(e) {
+  //   // statements
+  //   // console.log(e);
+  //   next(e.message)
+  // }
   var products = await Product.find();
   res.render('products/index', {
     products: products.slice(start,end),
