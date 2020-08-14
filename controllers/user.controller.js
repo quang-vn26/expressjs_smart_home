@@ -3,9 +3,12 @@ var md5 = require('md5')
 var shortid = require('shortid');
 var db = require('../db')
 
-module.exports.index = function(req,res){
+var User = require('../models/user.model');
+
+module.exports.index = async function(req,res){
+  var user = await User.find()
   res.render('users/index',{
-    users:db.get('users').value()
+    users:user
   })
  }
 

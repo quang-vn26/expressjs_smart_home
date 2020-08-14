@@ -1,40 +1,28 @@
-// var db = require('../db');
-
-// module.exports.index = function(req, res) {
-//   var page = parseInt(req.query.page) || 1; // n
-//   var perPage = 8; // x
-
-//   var start = (page - 1) * perPage;
-//   var end = page * perPage;
-
-//   var drop = (page - 1) * perPage;
-
-//   res.render('products/index', {
-//     //products: db.get('products').value().slice(start, end)
-//     products: db.get('products').drop(drop).take(perPage).value()
-//   });
-// };
-
-
-
 var md5 = require('md5')
 var shortid = require('shortid');
 var db = require('../db')
 
-module.exports.index = function(req,res){
+var Product = require('../models/product.model');
+
+module.exports.index = async function (req,res) {
+
+  // Product.find().then(function (products) {
+  //   res.render('products/index',{
+  //     products:products
+  //   })
+  // })
+
   var page = parseInt(req.query.p) || 1 //n
   var perPage = 8;
   var start = (page-1)*perPage
   var end = page*perPage
-  var drop = (page -1)*perPage
 
-  res.render('products/index',{
-    // products:db.get('products').value().slice(start,end)
-    products:db.get('products').drop(drop).take(perPage).value(),
+  var products = await Product.find();
+  res.render('products/index', {
+    products: products.slice(start,end),
     page:page
-  })
- }
-
+  });
+}
 module.exports.search =  (req,res) => {
   console.log(req.query);
   var name_search = req.query.q 

@@ -3,7 +3,9 @@ require('dotenv').config()
 var express = require('express')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
-var csurf = require('csurf');
+// var csurf = require('csurf');
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL);
 
 var userRouter = require('./routes/user.route')
 var wordRouter =  require('./routes/words.route')
@@ -24,7 +26,8 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRECT))
 app.use(sessionMiddleware);
-app.use(csurf({ cookie: true }));
+
+// app.use(csurf({ cookie: false }));
 
 app.use(express.static('public'))
  //router
