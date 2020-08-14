@@ -31,9 +31,11 @@ module.exports.create = function(req,res){
   res.render('users/create')
 }
 
-module.exports.view_user = function(req,res){
+module.exports.view_user = async function(req,res){
   var id = req.params.id
-  var user = db.get('users').find({id:id}).value()
+  // var user = db.get('users').find({id:id}).value()
+  var user = await User.find({_id:id})
+  res.json(user)
   res.render('users/view',{
     user:user
   })

@@ -18,10 +18,10 @@ block content
       each user in users
         tr
           td
-            img(src=user.avatar, width="60",class = "rounded-circle")
+            img(src=user.avatar, width="60",height = '60',class = "rounded-circle")
           td= user.name
           td
-            a(href='/users/'+user.id) View
+            a(href='/users/'+user._id) View
           td 
-            a(href='/users/delete/'+user.id,class='text-danger') Delete
+            a(href='/users/delete/'+user._id,class='text-danger') Delete
       
