@@ -12,6 +12,7 @@ mongoose.connect(process.env.MONGO_URL);
 var userRouter = require('./routes/user.route')
 var wordRouter =  require('./routes/words.route')
 var loginRouter = require('./routes/login.route')
+var logoutRouter = require('./routes/logout.route')
 var productRouter = require('./routes/product.route')
 var cartRoute = require('./routes/cart.route');
 var transferRoute = require('./routes/transfer.route');
@@ -36,7 +37,9 @@ app.use(express.static('public'))
  //router
 app.use('/users',authMiddleware.requireAuth,userRouter)
 app.use('/words',authMiddleware.requireAuth,wordRouter)
-app.use('/',loginRouter)
+app.use('/login',loginRouter)
+app.use('/logout',logoutRouter)
+
 app.use('/products',authMiddleware.requireAuth,productRouter)
 app.use('/cart', cartRoute);
 app.use('/transfer', authMiddleware.requireAuth, transferRoute);
