@@ -1,6 +1,8 @@
 var shortid = require('shortid');
 var md5 = require('md5')
 var db = require('../db')
+//yeu cau model
+var User = require('../models/user.model')
 
 module.exports.index = function(req,res){
   res.render('login/index',{
@@ -9,12 +11,14 @@ module.exports.index = function(req,res){
  }
 // login:db.get('login').value()
 //var user = db.get('users').find({id:id}).value()
-module.exports.login = function(req,res){
+module.exports.login = async function(req,res){
     var email = req.body.email
     var password = req.body.pw
 
     var user = db.get('users').find({ email: email }).value();
-
+    user = await User.findOne({email:email})
+    user = db.get('users').find({ email: email }).value();
+    console.log(user.name,user.pw)
     if(!user){
       res.render('login/index', {
         errors: [

@@ -34,19 +34,23 @@ module.exports.create = function(req,res){
 module.exports.view_user = async function(req,res){
   var id = req.params.id
   // var user = db.get('users').find({id:id}).value()
-  var user = await User.find({_id:id})
-  res.json(user)
+  let m_user = await User.findOne({_id:id})
+  // res.json(user)
+  //console.log(m_user.avatar)
   res.render('users/view',{
-    user:user
+    user:m_user
   })
 }
 
-module.exports.delete = function(req,res){
+module.exports.delete = async function(req,res){
     // Route parameters: thong so duong truyen
   var id = req.params.id
-  var user = db.get('users').find({id:id}).value()
-  var user = db.get('users').remove({id:id}).write()
-  res.redirect('/users')
+  // var user = db.get('users').find({id:id}).value()
+  // var user = db.get('users').remove({id:id}).write()
+  User.deleteOne({_id:id}).then(
+    res.redirect('/users')
+  )
+  
 }
 
 module.exports.postCreate = function(req,res){
