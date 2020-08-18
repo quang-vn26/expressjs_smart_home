@@ -1,12 +1,16 @@
-h1 View word
-p 
-  b Name: 
-  span &nbsp; 
-  span= word.name
-  span &nbsp;
-  br
-  b Description: 
-  span= word.description
-  br
-  b Example: 
-  span= word.example
+extends ../layouts/common.pug
+block title
+  title View Words
+block content
+    h1 View word
+    p 
+      b Name: 
+      span &nbsp; 
+      span= word.name
+      span &nbsp;
+      br
+      b Description: 
+      span= word.description
+      br
+      b Example: 
+      span= word.example

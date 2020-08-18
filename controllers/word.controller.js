@@ -46,5 +46,5 @@ module.exports.postCreate = function(req,res){
     req.body.date = new Date().toDateString()
     //req.body.id = shortid.generate();
     db.get('words').push(req.body).write()
-    res.redirect('/words');
+    res.redirect('/words/create');
 }

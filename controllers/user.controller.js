@@ -1,8 +1,6 @@
-
 var md5 = require('md5')
 var shortid = require('shortid');
 var db = require('../db')
-
 var User = require('../models/user.model');
 
 module.exports.index = async function(req,res){
@@ -12,10 +10,11 @@ module.exports.index = async function(req,res){
   })
  }
 
-module.exports.search =  (req,res) => {
-  console.log(req.query);
+module.exports.search = async  (req,res) => {
+  // console.log(req.query);
   var name_search = req.query.q 
-  var users = db.get('users').value()
+  // var users = db.get('users').value()
+  var users = await User.find()
   var result = users.filter( (user) => {
     return user.name.toLowerCase().indexOf(name_search.toLowerCase()) !== -1
   })
@@ -27,7 +26,7 @@ module.exports.search =  (req,res) => {
 
 
 module.exports.create = function(req,res){
-  console.log(req.cookies)
+  // console.log(req.cookies)
   res.render('users/create')
 }
 
@@ -49,15 +48,17 @@ module.exports.delete = async function(req,res){
   // var user = db.get('users').remove({id:id}).write()
   User.deleteOne({_id:id}).then(
     res.redirect('/users')
-  )
+  ).catch(err => err);
   
 }
 
-module.exports.postCreate = function(req,res){
+module.exports.postCreate =async function(req,res){
     req.body.id = shortid.generate();
     req.body.pw = md5(req.body.pw)
     req.body.avatar = req.file.path.split('/').slice(1).join('/');
     // db.get('users').push(req.body).write()
-    db.get('users').unshift(req.body).write()
+    // db.get('users').unshift(req.body).write()
+    const doc = new User(req.body);
+    await doc.save()
     res.redirect('/users');
 }
