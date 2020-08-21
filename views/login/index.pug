@@ -1,20 +1,92 @@
 html
   head
     block title
-    link(rel="stylesheet",href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet",href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css")
     //- link(rel="stylesheet",href="/css/bootstrap.min.css")
   //- body
   body 
-      div.container
-        h1 Login
-        if errors
-          each error in errors
-            .alert.alert-danger= error
-          //- each erro
-        form(action="/login",method = "POST",class="form-group")
-          lable Email
-          input(name="email",type ="text",value=values ? values.email : "",class="form-control")
-          lable Password
-          input(name="pw",type ="password",value=values ? values.pw : "",class="form-control")
-          br
-          button(class='btn btn-primary') Login
+      section.hero.is-success.is-fullheight
+        // Hero head: will stick at the top
+        .hero-head
+          header.navbar
+            .container
+              .navbar-brand
+                a.navbar-item
+                  //- img(src='https://bulma.io/images/bulma-type-white.png' alt='Logo')
+                span.navbar-burger.burger(data-target='navbarMenuHeroC')
+                  span
+                  span
+                  span
+              #navbarMenuHeroC.navbar-menu
+                .navbar-end
+                  a.navbar-item.is-active(href='/users')
+                     | Users
+                  a.navbar-item(href='/words')
+                    | Words
+                  a.navbar-item
+                    | Documentation
+                  span.navbar-item
+                    a.button.is-success.is-inverted
+                      span.icon
+                        i.fab.fa-github
+                      span Download
+        // Hero content: will be in the middle
+        div.hero-body
+          div.container.has-text-centered
+            div.column.is-8.is-offset-2.has-text-white 
+              h3.title Login
+              hr.login-hr
+              p.subtitle Please login to see our cool stuff!
+              div.box
+                div.box
+                  img(src="/img/img.jpeg")
+                  div.title.has-text-grey.is-5 Please enter your email and password.  
+                if errors
+                  each error in errors
+                    article.message.is-danger
+                      .message-body= error    
+                form(action="/login",method = "POST",class="form-group")
+                  div.field
+                    div.control
+                    input(class="input",type="email",placeholder="Email",name='email') 
+                  div.field
+                    div.control
+                    input(class="input",type="password",name="pw",placeholder="Password")  
+                  button.button.is-block.is-danger.is-large.is-fullwidth Login
+                p.has-text-grey
+                  a(href='') Sign Up
+                  |&nbsp;&middot;&nbsp;  
+                  a(href='') Forgot Password
+                  |  &nbsp;&middot;&nbsp;  
+                  a(href='') Need Help?
+
+        // Hero footer: will stick at the bottom
+        //- .hero-foot.is-info
+        //-   nav.tabs.is-boxed.is-fullwidth
+        //-     .container.is-info
+        //-       ul
+        //-         li.is-active
+        //-           a Overview
+        //-         li
+        //-           a Modifiers
+        //-         li
+        //-           a Grid
+        //-         li
+        //-           a Elements
+        //-         li
+        //-           a Components
+        //-         li
+        //-           a Layout
+
+        //- h1 Login
+        //- if errors
+        //-   each error in errors
+        //-     .alert.alert-danger= error
+        //-   //- each erro
+        //- form(action="/login",method = "POST",class="form-group")
+        //-   lable Email
+        //-   input(name="email",type ="text",value=values ? values.email : "",class="form-control")
+        //-   lable Password
+        //-   input(name="pw",type ="password",value=values ? values.pw : "",class="form-control")
+        //-   br
+        //-   button(class='btn btn-primary') Login

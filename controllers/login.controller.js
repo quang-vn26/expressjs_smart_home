@@ -5,19 +5,21 @@ var db = require('../db')
 var User = require('../models/user.model')
 
 module.exports.index = function(req,res){
-  res.render('login/index',{
-    users:db.get('users').value()
-  })
+  res.render('login/index')
  }
 // login:db.get('login').value()
 //var user = db.get('users').find({id:id}).value()
 module.exports.login = async function(req,res){
     var email = req.body.email
     var password = req.body.pw
-
+    // let user = await User.findOne({email:email})
     var user = db.get('users').find({ email: email }).value();
-    user = await User.findOne({email:email})
-    user = db.get('users').find({ email: email }).value();
+    try {
+      user = await User.findOne({email:email})
+    } catch(e) {
+      // statements
+      console.log(e);
+    }
     console.log(user.name,user.pw)
     if(!user){
       res.render('login/index', {

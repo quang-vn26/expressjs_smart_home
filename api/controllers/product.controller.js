@@ -12,6 +12,6 @@ module.exports.create = async function (req,res) {
 }
 module.exports.viewId = async function (req,res) {
   let id = req.params.id
-  let product = await Product.find({id:id})
+  let product = await Product.find({_id:id})
   res.json(product)
 }

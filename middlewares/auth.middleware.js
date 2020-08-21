@@ -1,4 +1,5 @@
-var db = require('../db')
+// var db = require('../db')
+var User = require('../models/user.model')
 module.exports.requireAuth = function (req,res, next) {
   /* body... */
   // console.log(req.signedCookies)
@@ -7,7 +8,15 @@ module.exports.requireAuth = function (req,res, next) {
     res.redirect('/login')
     return
   }
-  var user = db.get('users').find({id:req.signedCookies.userId}).value()
+  // var user = db.get('users').find({id:req.signedCookies.userId}).value()
+  try {
+    // statements
+    var user = User.findOne({_id:req.signedCookies.userId})
+  } catch(e) {
+    // statements
+    console.log(e);
+  }
+  
   if(!user){
     res.redirect('/login')
     return

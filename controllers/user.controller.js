@@ -1,6 +1,6 @@
 var md5 = require('md5')
 var shortid = require('shortid');
-var db = require('../db')
+// var db = require('../db')
 var User = require('../models/user.model');
 
 module.exports.index = async function(req,res){
