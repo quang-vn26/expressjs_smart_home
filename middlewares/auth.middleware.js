@@ -12,7 +12,7 @@ module.exports.requireAuth = function (req,res, next) {
     res.redirect('/login')
     return
   }
-  res.locals.user = user
+  res.locals.muser = user
   next()
 }
 
