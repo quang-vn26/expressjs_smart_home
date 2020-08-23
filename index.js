@@ -29,7 +29,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRECT))
 app.use(sessionMiddleware);
-
+// app.use(app.router);
 // app.use(csurf({ cookie: true }));
 
 app.use(express.static('public'))
@@ -46,9 +46,29 @@ app.use('/api/products',apiProductRoute)
 
  app.get('/',authMiddleware.requireAuth,function(req,res){
   res.render('index',{
-    name: 'QQQ'
+    name:'Quang'
   })
  })
+
+app.use(function(req, res, next){
+  res.status(404);
+
+  // respond with html page
+  if (req.accepts('html')) {
+    res.render('404', { url: req.url });
+    return;
+  }
+
+  // respond with json
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
+
+  // default to plain-text. send()
+  res.type('txt').send('Not found');
+});
+
  //----------------------
  app.listen(port,function(){
   //console.log('open in port: '+port)
