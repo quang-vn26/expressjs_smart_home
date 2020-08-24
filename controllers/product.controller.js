@@ -9,14 +9,12 @@ module.exports.index = async function (req,res,next) {
   var perPage = 8;
   var start = (page-1)*perPage
   var end = page*perPage
-  // try {
-  //   page.poo()
-  // } catch(e) {
-  //   // statements
-  //   // console.log(e);
-  //   next(e.message)
-  // }
+  try {
   var products = await Product.find();
+  } catch (error) {
+    
+  }
+ 
   res.render('products/index', {
     products: products.slice(start,end),
     page:page
@@ -25,7 +23,11 @@ module.exports.index = async function (req,res,next) {
 module.exports.search =  (req,res) => {
   console.log(req.query);
   var name_search = req.query.q 
-  var products = db.get('products').value()
+  try {
+    var products = Product.find()
+  } catch (error) {
+    
+  }
   var result = products.filter( (product) => {
     return product.name.toLowerCase().indexOf(name_search.toLowerCase()) !== -1
   })

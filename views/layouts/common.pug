@@ -29,12 +29,14 @@ html
         //-   input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search' name="q")
         //-   button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
       if muser
-        p.float-left= muser.name
-        //- p
-        //-   a.btn.btn-primary.bg-light.stretched-link.text-danger.ml-2(href="/logout") Logout 
-        p.float-left 
-          button.btn.btn-light
-            a.text-danger(href="/logout") Logout
+        p.float-left
+          a(href="/users/"+muser._id)
+            p.float-left= muser.name
+          //- p
+          //-   a.btn.btn-primary.bg-light.stretched-link.text-danger.ml-2(href="/logout") Logout 
+          p.float-left 
+            button.btn.btn-light
+              a.text-danger(href="/logout") Logout
     .container.pt-5      
       block content
       block footer

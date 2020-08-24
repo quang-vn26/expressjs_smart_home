@@ -1,8 +1,5 @@
 var db = require('../db')
 module.exports.requireAuth = function (req,res, next) {
-  /* body... */
-  // console.log(req.signedCookies)
-  // console.log(req.cookies,req.signedCookies)
   if(!req.signedCookies.userId){
     res.redirect('/login')
     return
