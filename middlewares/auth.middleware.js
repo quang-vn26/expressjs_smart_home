@@ -1,13 +1,15 @@
 var User = require('../models/user.model')
-module.exports.requireAuth = function (req,res, next) {
+module.exports.requireAuth = async function (req,res, next) {
   if(!req.signedCookies.userId){
     res.redirect('/login')
     return
   }
   try {
-    var user = User.findOne({_id:req.signedCookies.userId})
+    console.log('cookies:'+req.signedCookies.userId)
+    var user =   User.findOne({_id:req.signedCookies.userId})
+    console.log('user')
   } catch(e) {
-    console.log(e);
+    console.log("err is:"+e);
   }
   
   if(!user){

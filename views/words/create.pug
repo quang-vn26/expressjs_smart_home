@@ -11,3 +11,48 @@ form(action="/words/create",method = "POST")
   input(name="example",type ="text",value="example")
   br
   button Create Word
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Node.js upload images
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+  style.
+    div.preview-images > img {
+    width: 30%;
+    }
+.container
+  .row
+    .col-sm-8.mt-3
+      h4 Node.js upload images - bezkoder.com
+      form.mt-4(action='/upload' method='POST' enctype='multipart/form-data')
+        .form-group
+          input#input-files.form-control-file.border(type='file' name='file')
+        button.btn.btn-primary(type='submit') Submit
+  hr
+  .row
+    .col-sm-12
+      .preview-images
+      script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')
+      script(src='https://code.jquery.com/jquery-3.4.1.min.js')
+      script.
+        $(document).ready(function() {
+        let imagesPreview = function(input, placeToInsertImagePreview) {
+        if (input.files) {
+        let filesAmount = input.files.length;
+        for (i = 0; i < filesAmount; i++) {
+        let reader = new FileReader();
+        reader.onload = function(event) {
+        $($.parseHTML("<img>"))
+        .attr("src", event.target.result)
+        .appendTo(placeToInsertImagePreview);
+        };
+        reader.readAsDataURL(input.files[i]);
+        }
+        }
+        };
+        $("#input-files").on("change", function() {
+        imagesPreview(this, "div.preview-images");
+        });
+        });

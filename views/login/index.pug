@@ -25,11 +25,6 @@ html
                     | Words
                   a.navbar-item
                     | Documentation
-                  span.navbar-item
-                    a.button.is-success.is-inverted
-                      span.icon
-                        i.fab.fa-github
-                      span Download
         // Hero content: will be in the middle
         div.hero-body
           div.container.has-text-centered
@@ -39,7 +34,7 @@ html
               p.subtitle Please login to see our cool stuff!
               div.box
                 div.box
-                  img(src="/img/img.jpeg")
+                  //- img(src="/img/img.jpeg")
                   div.title.has-text-grey.is-5 Please enter your email and password.  
                 if errors
                   each error in errors
@@ -61,22 +56,22 @@ html
                   a(href='') Need Help?
 
         // Hero footer: will stick at the bottom
-        //- .hero-foot.is-info
-        //-   nav.tabs.is-boxed.is-fullwidth
-        //-     .container.is-info
-        //-       ul
-        //-         li.is-active
-        //-           a Overview
-        //-         li
-        //-           a Modifiers
-        //-         li
-        //-           a Grid
-        //-         li
-        //-           a Elements
-        //-         li
-        //-           a Components
-        //-         li
-        //-           a Layout
+        .hero-foot.is-info
+          nav.tabs.is-boxed.is-fullwidth
+            .container.is-info
+              ul
+                li.is-active
+                  a Overview
+                li
+                  a Modifiers
+                li
+                  a Grid
+                li
+                  a Elements
+                li
+                  a Components
+                li
+                  a Layout
 
         //- h1 Login
         //- if errors
