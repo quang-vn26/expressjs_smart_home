@@ -1,0 +1,23 @@
+extends ../layouts/common.pug
+block content
+  body 
+      div.container
+        h1 Edit user
+        if errors
+          each error in errors
+            .alert.alert-danger= error
+          //- each erro
+        form(action="/users/postEdit/"+values._id,method = "POST",enctype="multipart/form-data")
+          .form-group
+            lable(for="name") Name
+            input#name(name="name",type ="text",value=values ? values.name : "",class="form-control")
+          .form-group    
+            lable(for="email") Email
+            input#email(name="email",type ="email",value=values ? values.email : "",class="form-control")
+          .form-group    
+            lable(for="pw") Password
+            input#pw(name="pw",type ="password",value=values ? values.pw : "",class="form-control")
+          .form-group
+            label(for="avatar") Avatar
+            input#avatar.form-control-file(name="avatar", type="file")   
+          button(class='btn btn-primary') Update

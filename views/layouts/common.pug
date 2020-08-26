@@ -26,7 +26,6 @@ html
           li.nav-item
             a.nav-link(href='/cart') Cart   
       if muser
-      -console.log('muser:'+muser)
         p.float-left
           a(href="/users/"+muser._id)
             p.float-left= muser.name

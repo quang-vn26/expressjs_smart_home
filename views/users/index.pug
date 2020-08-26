@@ -14,6 +14,7 @@ block content
         th Name
         th Action
         th Action
+        th Action
   
       each user in users
         tr
@@ -22,6 +23,8 @@ block content
           td= user.name
           td
             a(href='/users/'+user._id) View
+          td
+            a.text-info(href='/users/edit/'+user._id) Edit  
           td 
             a(href='/users/delete/'+user._id,class='text-danger') Delete
       

@@ -52,13 +52,35 @@ module.exports.delete = async function(req,res){
   
 }
 
+
 module.exports.postCreate =async function(req,res){
     req.body.id = shortid.generate();
     req.body.pw = md5(req.body.pw)
     req.body.avatar = req.file.path.split('/').slice(1).join('/');
-    // db.get('users').push(req.body).write()
-    // db.get('users').unshift(req.body).write()
     const doc = new User(req.body);
     await doc.save()
     res.redirect('/users');
+}
+module.exports.edit = async function(req,res){
+  var id = req.params.id
+  let m_user = await User.findOne({_id:id})
+  res.render('users/edit',{
+    values:m_user
+  })
+}
+
+module.exports.postEdit = async function(req,res){
+  res.redirect('/users');
+  try {
+    var id = req.params.id
+    await User.deleteOne({_id:id})
+    req.body.pw = md5(req.body.pw)
+    req.body.avatar = req.file.path.split('/').slice(1).join('/');
+    const doc = new User(req.body);
+    await doc.save()
+    res.redirect('/users');
+  } catch (error) {
+
+  }
+    
 }
