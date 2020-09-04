@@ -54,7 +54,7 @@ module.exports.delete = async function(req,res){
 
 
 module.exports.postCreate =async function(req,res){
-    req.body.id = shortid.generate();
+    // req.body.id = shortid.generate();
     req.body.pw = md5(req.body.pw)
     req.body.avatar = req.file.path.split('/').slice(1).join('/');
     const doc = new User(req.body);
@@ -70,15 +70,20 @@ module.exports.edit = async function(req,res){
 }
 
 module.exports.postEdit = async function(req,res){
-  res.redirect('/users');
+  // res.redirect('/users');
+  console.log('post')
   try {
     var id = req.params.id
     await User.deleteOne({_id:id})
-    req.body.pw = md5(req.body.pw)
-    req.body.avatar = req.file.path.split('/').slice(1).join('/');
-    const doc = new User(req.body);
-    await doc.save()
+    try {
+      req.body.pw = md5(req.body.pw)
+      req.body.avatar = req.file.path.split('/').slice(1).join('/');
+      const doc = new User(req.body);
+      await doc.save()
     res.redirect('/users');
+    } catch (error) {
+      
+    }
   } catch (error) {
 
   }

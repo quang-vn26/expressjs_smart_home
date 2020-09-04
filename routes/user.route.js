@@ -15,7 +15,6 @@ router.get('/search', user_controller.search)
 router.get('/create', user_controller.create)
 router.get('/:id',user_controller.view_user)
 router.get('/edit/:id', user_controller.edit)
-router.get('/postEdit/:id', user_controller.postEdit)
 router.get('/delete/:id', user_controller.delete)
 
 // router.post('/create', validate.user_validate, user_controller.postCreate)
@@ -24,6 +23,6 @@ router.post('/create',
   validate.user_validate,
   user_controller.postCreate
 );
-
+router.post('/postEdit/:id', user_controller.postEdit)
 
 module.exports = router

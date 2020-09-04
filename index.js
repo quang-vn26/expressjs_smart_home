@@ -3,19 +3,16 @@ require('dotenv').config()
 var express = require('express')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
-// var csurf = require('csurf');
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true,useUnifiedTopology: true });
 
 
 var userRouter = require('./routes/user.route')
-var wordRouter =  require('./routes/words.route')
 var loginRouter = require('./routes/login.route')
 var logoutRouter = require('./routes/logout.route')
-var productRouter = require('./routes/product.route')
-var cartRoute = require('./routes/cart.route');
-var transferRoute = require('./routes/transfer.route');
-var apiProductRoute = require('./api/routes/product.route');
+
+var arduinoRouter = require('./routes/arduino.route')
+var apiArduinoRoute = require('./api/routes/arduino.route');
 
 var authMiddleware = require('./middlewares/auth.middleware.js')
 var sessionMiddleware = require('./middlewares/session.middleware');
@@ -35,19 +32,13 @@ app.use(sessionMiddleware);
 app.use(express.static('public'))
  //router
 app.use('/users',authMiddleware.requireAuth,userRouter)
-app.use('/words',authMiddleware.requireAuth,wordRouter)
 app.use('/login',loginRouter)
 app.use('/logout',logoutRouter)
-
-app.use('/products',authMiddleware.requireAuth,productRouter)
-app.use('/cart', cartRoute);
-app.use('/transfer', authMiddleware.requireAuth, transferRoute);
-app.use('/api/products',apiProductRoute)
+app.use('/arduino/',arduinoRouter)
+app.use('/api/arduino',apiArduinoRoute)
 
  app.get('/',authMiddleware.requireAuth,function(req,res){
-  res.render('index',{
-    name:'Quang'
-  })
+  res.render('index')
  })
 
 app.use(function(req, res, next){

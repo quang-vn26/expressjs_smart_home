@@ -1,252 +1,117 @@
 {
-  "users": [
+  "arduino": [
     {
-      "name": "quang",
-      "email": "name1@gmail.com",
-      "pw": "b068931cc450442b63f5b3d276ea4297",
-      "id": "0uFuOQ_AK",
-      "avatar": "uploads/d01288ddaaec5d06879edcddbfdb040e"
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:36.442Z"
     },
     {
-      "name": "name",
-      "email": "name@gmail.com",
-      "pw": "b068931cc450442b63f5b3d276ea4297",
-      "id": "CpxXMdfIW",
-      "avatar": "uploads/19a5b720ee8dbffc121bcc96e108d77f"
+      "id": "led_2",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:42.607Z"
     },
     {
-      "name": "quang123",
-      "email": "name@gmail.com",
-      "pw": "b068931cc450442b63f5b3d276ea4297",
-      "id": "kxQqkTHt1",
-      "avatar": "uploads/1eb785e67135e83d177cc84d56fe10e5"
+      "id": "led_3",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:44.519Z"
     },
     {
-      "name": "quang123",
-      "email": "quang123@gmail.com",
-      "pw": "9ea04374c01e81fcb68912c7cce3c9d0",
-      "id": "55T_FPkEF",
-      "avatar": "uploads/92e7d5c9475811950850830e66c7f376"
+      "id": "led_4",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:46.220Z"
     },
     {
-      "name": "jhkhkjhadadad",
-      "email": "name@gmail.com",
-      "pw": "b068931cc450442b63f5b3d276ea4297",
-      "id": "2rQjdDcm-0"
+      "id": "fan_1",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:47.766Z"
     },
     {
-      "name": "1",
-      "email": "1@gmail.com",
-      "pw": "c4ca4238a0b923820dcc509a6f75849b",
-      "id": "3pshQwBtU"
+      "id": "fan_2",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:49.336Z"
     }
   ],
-  "words": [
+  "words": [],
+  "arduino_history": [
     {
-      "name": "release",
-      "description": "giai phong",
-      "example": "he release the bird form his hands",
-      "id": "hKUyrwpgp"
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-03T08:17:14.419Z"
     },
     {
-      "name": "perhaps",
-      "description": "meaning",
-      "example": "perhaps i should learn smarter",
-      "id": "oIPEbmaTP"
+      "id": "led_2",
+      "status": "_bat",
+      "date": "2020-09-03T08:17:15.614Z"
     },
     {
-      "name": "essential",
-      "description": "a thing that is absolutely necessary.",
-      "example": "It is essential to have oxygen when you scuba dive",
-      "id": "8C9hdw7Wx"
+      "id": "led_3",
+      "status": "_tat",
+      "date": "2020-09-03T08:17:16.580Z"
     },
     {
-      "name": "indent",
-      "description": "thut vao trong sublinetext",
-      "example": "indent or unindent",
-      "id": "-P5yYUkTr"
+      "id": "led_4",
+      "status": "_tat",
+      "date": "2020-09-03T08:17:17.396Z"
     },
     {
-      "name": "completion",
-      "description": "Hoan thanh",
-      "example": "are you completion your code",
-      "id": "uLhBQGhcL"
+      "id": "fan_1",
+      "status": "_tat",
+      "date": "2020-09-03T08:17:18.446Z"
     },
     {
-      "name": "permute",
-      "description": "hoán v",
-      "example": "a can permute b",
-      "id": "Q0orRMGjr"
-    }
-  ],
-  "login": [],
-  "products": [
-    {
-      "id": "2795a67e-eab9-43bd-82d5-9c2344234b9d",
-      "name": "Cup - 3.5oz, Foam",
-      "image": "https://picsum.photos/320/240",
-      "description": "non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta",
-      "price": "$4.53"
+      "id": "fan_2",
+      "status": "_tat",
+      "date": "2020-09-03T08:17:19.012Z"
     },
     {
-      "id": "8ec27f4c-28bc-4ec1-a042-1110d1706214",
-      "name": "Wine - Shiraz South Eastern",
-      "image": "https://picsum.photos/320/240",
-      "description": "congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam",
-      "price": "$3.09"
-    }
-  ],
-  "sessions": [
-    {
-      "id": "Ai7FDGprh",
-      "cart": {
-        "23215765-369d-487c-b3c5-b5d2696ae066": 5,
-        "e554aa7b-2edc-42ba-a8f9-d8c4bec9b97f": 2,
-        "b8bc9a58-14c3-414d-b3fb-667c3888ac3c": 2
-      }
+      "id": "fan_2",
+      "status": "_tat",
+      "date": "2020-09-03T08:18:19.671Z"
     },
     {
-      "id": "7pnMF73tF",
-      "cart": {
-        "23215765-369d-487c-b3c5-b5d2696ae066": 2
-      }
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-03T08:44:44.399Z"
     },
     {
-      "id": "Lw1li37NU"
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-04T03:41:14.748Z"
     },
     {
-      "id": "xEMpcGIyLm"
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:33.466Z"
     },
     {
-      "id": "Vlieob-qM"
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:36.442Z"
     },
     {
-      "id": "TFRKPuDZI"
+      "id": "led_2",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:42.607Z"
     },
     {
-      "id": "duqMyjdAt"
+      "id": "led_3",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:44.519Z"
     },
     {
-      "id": "krWG5XU8s"
+      "id": "led_4",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:46.220Z"
     },
     {
-      "id": "jwSJWGk3D"
+      "id": "fan_1",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:47.766Z"
     },
     {
-      "id": "L6WOZ-fks"
-    },
-    {
-      "id": "B9ceSkfgQ"
-    },
-    {
-      "id": "bPH4PkHEy"
-    },
-    {
-      "id": "bXgh1bkkn"
-    },
-    {
-      "id": "bCMdTxKn2"
-    },
-    {
-      "id": "GG8DDedPw"
-    },
-    {
-      "id": "r5BZwhOqnj"
-    },
-    {
-      "id": "DPODinlf3"
-    },
-    {
-      "id": "m7ng2uzoJ"
-    },
-    {
-      "id": "qX4BGl7S7"
-    },
-    {
-      "id": "cBmD8S3Jtp"
-    },
-    {
-      "id": "LTLYS-d2j"
-    },
-    {
-      "id": "raXnamaPV"
-    },
-    {
-      "id": "3MJLNZp4V"
-    },
-    {
-      "id": "z92eSCfsid"
-    },
-    {
-      "id": "XGMO32_wp"
-    },
-    {
-      "id": "fIJSJ1270"
-    },
-    {
-      "id": "xAyLJ5Ihvf"
-    },
-    {
-      "id": "PDn0fNlBk"
-    },
-    {
-      "id": "N5Um2Quyz"
-    },
-    {
-      "id": "dgx-z9WIg"
-    },
-    {
-      "id": "p_-6QV4z8"
-    },
-    {
-      "id": "EjEFSrxSU"
-    },
-    {
-      "id": "VuHEllGY2"
-    },
-    {
-      "id": "h07HJg38h"
-    },
-    {
-      "id": "jvcMyOM0p"
-    },
-    {
-      "id": "8fAFczJhGg"
-    },
-    {
-      "id": "D8FYcAhXB"
-    },
-    {
-      "id": "sqpNBeihcz"
-    },
-    {
-      "id": "OZ_9W53NQ"
-    },
-    {
-      "id": "TiQe_qmtql"
-    },
-    {
-      "id": "g13pxGCeG"
-    },
-    {
-      "id": "VbI4DmmbBG"
-    },
-    {
-      "id": "n_DqeKE7c"
-    },
-    {
-      "id": "UGJPOBWB-"
-    },
-    {
-      "id": "z7U7806Owx"
-    }
-  ],
-  "transfers": [
-    {
-      "id": "djwbP5sRp",
-      "amount": 123130,
-      "accountId": "1213123",
-      "userId": "kxQqkTHt1"
+      "id": "fan_2",
+      "status": "_bat",
+      "date": "2020-09-04T03:42:49.336Z"
     }
   ]
 }

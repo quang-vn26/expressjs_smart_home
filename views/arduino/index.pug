@@ -1,0 +1,57 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Nh&agrave; th&ocirc;ng minh
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')
+  style.
+    body {
+    background-color: #00c6ff ;
+    }
+br
+.container
+  h1.jumbotron.text-center NH&Agrave; TH&Ocirc;NG MINH
+  a.nav-link(href='/arduino/trangthai') Status 
+  form.form-inline.form-group(method='POST' action='/arduino/postApi')
+    label 
+      h2 LED 1
+    input(name="id",type ="text",value="led_1" class="form-control" hidden)
+    input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
+    input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
+  form.form-inline(method='POST' action='/arduino/postApi')
+    label 
+      h2 LED 2
+    input(name="id",type ="text",value="led_2" class="form-control" hidden)
+    input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
+    input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
+  
+  form.form-inline(method='POST' action='/arduino/postApi')
+    label
+      h2 LED 3
+    input(name="id",type ="text",value="led_3" class="form-control" hidden)
+    input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
+    input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
+  
+  form.form-inline(method='POST' action='/arduino/postApi')
+    label
+      h2 Cam Bien Anh Sang
+    input(name="id",type ="text",value="led_4" class="form-control" hidden)
+    input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
+    input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
+
+  form.form-inline(method='POST' action='/arduino/postApi')
+    label
+      h2 Fan
+    input(name="id",type ="text",value="fan_1" class="form-control" hidden)
+    input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
+    input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
+
+  form.form-inline(method='POST' action='/arduino/postApi')
+    label
+      h2 Cua
+    input(name="id",type ="text",value="fan_2" class="form-control" hidden)
+    input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
+    input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')

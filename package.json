@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "csurf": "^1.11.0",
@@ -22,8 +23,12 @@
     "mongoose": "^5.9.29",
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^4.2.0",
+    "node-fetch": "^2.6.0",
     "pug": "^3.0.0",
-    "shortid": "^2.2.15"
+    "q": "^1.5.1",
+    "shortid": "^2.2.15",
+    "unsplash": "^4.2.0",
+    "unsplash-js": "^6.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
