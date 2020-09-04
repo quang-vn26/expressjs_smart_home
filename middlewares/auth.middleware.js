@@ -17,7 +17,7 @@ module.exports.requireAuth = async function (req,res, next) {
     return
   }
   res.locals.muser = user
-  console.log('name: '+user.name)
+  // console.log('name: '+user.name)
   next()
 }
 

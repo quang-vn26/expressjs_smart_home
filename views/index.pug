@@ -1,47 +1,29 @@
 extends ./layouts/common
 block content
   div.container
-    //- h1 Hello #{name}
-    a(href="/users") Users
     .container
-      //- h1.jumbotron.text-center NH&Agrave; TH&Ocirc;NG MINH
-      form.form-inline.form-group(method='POST' action='/arduino/postApi')
-        label 
-          h2 LED 1
-        input(name="id",type ="text",value="led_1" class="form-control" hidden)
-        input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
-        input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
-      form.form-inline(method='POST' action='/arduino/postApi')
-        label 
-          h2 LED 2
-        input(name="id",type ="text",value="led_2" class="form-control" hidden)
-        input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
-        input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
-      
-      form.form-inline(method='POST' action='/arduino/postApi')
-        label
-          h2 LED 3
-        input(name="id",type ="text",value="led_3" class="form-control" hidden)
-        input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
-        input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
-      
-      form.form-inline(method='POST' action='/arduino/postApi')
-        label
-          h2 Sensor
-        input(name="id",type ="text",value="led_4" class="form-control" hidden)
-        input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
-        input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
-
-      form.form-inline(method='POST' action='/arduino/postApi')
-        label
-          h2 Fan
-        input(name="id",type ="text",value="fan_1" class="form-control" hidden)
-        input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
-        input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
-
-      form.form-inline(method='POST' action='/arduino/postApi')
-        label
-          h2 Cua
-        input(name="id",type ="text",value="fan_2" class="form-control" hidden)
-        input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
-        input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')
+      table.table
+        thead.thead-light
+          tr
+            th(scope='col') DEVICE
+            th(scope='col') ACTION
+            th(scope='col') ACTION
+            th(scope='col') STATUS
+        tbody
+          -var count=0
+          -var arr=['LED 1','LED 2','LED 3','LED 4','FAN','DOOR']
+          each i in arduino
+            tr
+              th.text-info(scope='row')=arr[count++]
+              td 
+                form.form-inline.form-group(method='POST' action='/arduino/postApi')
+                  input(name="id",type ="text",value=i.id class="form-control" hidden)
+                  input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
+              td 
+                form.form-inline.form-group(method='POST' action='/arduino/postApi')
+                  input(name="id",type ="text",value=i.id class="form-control" hidden)
+                  input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')  
+              if i.status == '_tat'
+                td.text-danger='Tắt'
+              else
+                td.text-success='Bật'  

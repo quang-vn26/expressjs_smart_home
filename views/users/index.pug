@@ -14,7 +14,7 @@ block content
         th Name
         th Action
         th Action
-        th Action
+        //- th Action
   
       each user in users
         tr
@@ -25,6 +25,7 @@ block content
             a(href='/users/'+user._id) View
           td
             a.text-info(href='/users/edit/'+user._id) Edit  
-          td 
-            a(href='/users/delete/'+user._id,class='text-danger') Delete
+          if user._id != '5f51debfaeda000ca868f249'
+            td 
+              a(href='/users/delete/'+user._id,class='text-danger') Delete
       

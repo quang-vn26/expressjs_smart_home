@@ -1,0 +1,17 @@
+extends ../layouts/common
+block content
+  div.container
+    .container
+      a.nav-link.text-danger(href='/arduino/xoalichsu') Xoa
+      table.table
+        thead.thead-light
+          tr
+            th(scope='col') DEVICE
+            th(scope='col') TIME
+            th(scope='col') STATUS
+        tbody
+          each i in arduino
+            tr
+              th(scope='row')=i.id
+              td=new Date(i.date).getHours()+':'+new Date(i.date).getMinutes()+' in '+new Date(i.date).toDateString()
+              td=i.status
