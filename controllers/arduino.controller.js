@@ -27,6 +27,9 @@ module.exports.xoalichsu = async function (req,res,next) {
   db.get('arduino_history').remove().write();
   res.redirect('/arduino/lichsu')
 }
+module.exports.datlich = async function (req,res,next) {
+  res.render('/arduino/datlich')
+}
 module.exports.getAPI = async function(req, res) {
   var t =db.get('arduino').value()
  res.json(t);

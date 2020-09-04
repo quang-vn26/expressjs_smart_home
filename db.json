@@ -2,22 +2,22 @@
   "arduino": [
     {
       "id": "led_1",
-      "status": "_bat",
+      "status": "_tat",
       "date": "2020-09-03T08:44:44.399Z"
     },
     {
       "id": "led_2",
-      "status": "_bat",
+      "status": "_tat",
       "date": "2020-09-03T08:17:15.614Z"
     },
     {
       "id": "led_3",
-      "status": "_bat",
+      "status": "_tat",
       "date": "2020-09-03T08:17:16.580Z"
     },
     {
       "id": "led_4",
-      "status": "_bat",
+      "status": "_tat",
       "date": "2020-09-03T08:17:17.396Z"
     },
     {
@@ -31,11 +31,42 @@
       "date": "2020-09-03T08:18:19.671Z"
     }
   ],
+  "schedule": [],
   "arduino_history": [
     {
       "id": "led_1",
+      "status": "_tat",
+      "date": "2020-09-04T13:34:04.693Z"
+    },
+    {
+      "id": "led_2",
+      "status": "_tat",
+      "date": "2020-09-04T13:34:03.044Z"
+    },
+    {
+      "id": "led_4",
+      "status": "_tat",
+      "date": "2020-09-04T13:03:44.787Z"
+    },
+    {
+      "id": "led_3",
+      "status": "_tat",
+      "date": "2020-09-04T13:03:43.485Z"
+    },
+    {
+      "id": "led_2",
+      "status": "_tat",
+      "date": "2020-09-04T13:03:42.759Z"
+    },
+    {
+      "id": "led_2",
       "status": "_bat",
-      "date": "2020-09-04T07:32:15.869Z"
+      "date": "2020-09-04T13:03:41.090Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-04T13:03:39.907Z"
     }
   ],
   "words": []

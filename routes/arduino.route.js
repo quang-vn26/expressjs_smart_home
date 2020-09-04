@@ -7,6 +7,7 @@ router.get('/',controller.index)
 router.get('/trangthai',controller.trangthai)
 router.get('/lichsu',controller.lichsu)
 router.get('/xoalichsu',controller.xoalichsu)
+router.get('/datlich',controller.datlich)
 router.get('/getApi',controller.getAPI)
 
 //post
