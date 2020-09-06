@@ -7,11 +7,11 @@ router.get('/',controller.index)
 router.get('/trangthai',controller.trangthai)
 router.get('/lichsu',controller.lichsu)
 router.get('/xoalichsu',controller.xoalichsu)
-router.get('/datlich',controller.datlich)
 router.get('/getApi',controller.getAPI)
+router.get('/datlich',controller.datlich)
 
 //post
 router.post('/postApi',controller.postAPI)
+router.post('/postSchedule',controller.postSchedule)
 
-// router.get('/getApi',controller.postAPI)
 module.exports = router

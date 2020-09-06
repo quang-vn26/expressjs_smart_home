@@ -2,12 +2,12 @@
   "arduino": [
     {
       "id": "led_1",
-      "status": "_tat",
+      "status": "_bat",
       "date": "2020-09-03T08:44:44.399Z"
     },
     {
       "id": "led_2",
-      "status": "_tat",
+      "status": "_bat",
       "date": "2020-09-03T08:17:15.614Z"
     },
     {
@@ -31,42 +31,78 @@
       "date": "2020-09-03T08:18:19.671Z"
     }
   ],
-  "schedule": [],
+  "schedule": [
+    {
+      "device": "Led 1",
+      "status": "On",
+      "date": "09/06/2020 6:15 PM",
+      "repeat": "No"
+    },
+    {
+      "device": "led_2",
+      "status": "On",
+      "date": "09/06/2020 12:38 AM",
+      "repeat": "everyday"
+    },
+    {
+      "device": "Led 1",
+      "status": "On",
+      "date": "2020-06-12T19:30",
+      "repeat": "No"
+    },
+    {
+      "device": "led_3",
+      "status": "_tat",
+      "date": "2020-06-12T19:30",
+      "repeat": "everyday"
+    },
+    {
+      "device": "Led 1",
+      "status": "On",
+      "date": "2020-06-12T19:30",
+      "repeat": "No"
+    },
+    {
+      "device": "Led 1",
+      "status": "On",
+      "date": "2020-06-12T19:30",
+      "repeat": "No"
+    },
+    {
+      "device": "led_3",
+      "status": "_tat",
+      "date": "2020-06-12T19:30",
+      "repeat": "everyday"
+    },
+    {
+      "device": "Led 1",
+      "status": "On",
+      "date": "2020-06-12T19:30",
+      "repeat": "No"
+    },
+    {
+      "device": "led_2",
+      "status": "On",
+      "date": "09/06/2020 12:38 AM",
+      "repeat": "everyday"
+    },
+    {
+      "device": "Led 1",
+      "status": "On",
+      "date": "09/06/2020 6:15 PM",
+      "repeat": "No"
+    }
+  ],
   "arduino_history": [
     {
-      "id": "led_1",
-      "status": "_tat",
-      "date": "2020-09-04T13:34:04.693Z"
-    },
-    {
-      "id": "led_2",
-      "status": "_tat",
-      "date": "2020-09-04T13:34:03.044Z"
-    },
-    {
-      "id": "led_4",
-      "status": "_tat",
-      "date": "2020-09-04T13:03:44.787Z"
-    },
-    {
-      "id": "led_3",
-      "status": "_tat",
-      "date": "2020-09-04T13:03:43.485Z"
-    },
-    {
-      "id": "led_2",
-      "status": "_tat",
-      "date": "2020-09-04T13:03:42.759Z"
-    },
-    {
       "id": "led_2",
       "status": "_bat",
-      "date": "2020-09-04T13:03:41.090Z"
+      "date": "2020-09-06T11:09:45.527Z"
     },
     {
-      "id": "led_1",
-      "status": "_bat",
-      "date": "2020-09-04T13:03:39.907Z"
+      "id": "led_2",
+      "status": "_tat",
+      "date": "2020-09-06T11:09:42.649Z"
     }
   ],
   "words": []

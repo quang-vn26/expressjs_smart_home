@@ -2,3 +2,5 @@ node_modules
 # db.json
 .env
 note.txt
+note
+datlich.pdf
