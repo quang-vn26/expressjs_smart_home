@@ -1,4 +1,6 @@
 extends ./layouts/common
+block title
+  title Home
 block content
   div.container
     .container
@@ -24,6 +26,11 @@ block content
                   input(name="id",type ="text",value=i.id class="form-control" hidden)
                   input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')  
               if i.status == '_tat'
-                td.text-danger='Tắt'
+                td.inline-block
+                  div.text-danger='Tắt'
+                  img(src='./img/led_off.svg' alt='Lamp' width='32' height='32')
               else
-                td.text-success='Bật'  
+                td.inline-block
+                  div.text-success='Bật' 
+                  img(src='./img/led_on.svg' alt='Lamp' width='32' height='32')
+

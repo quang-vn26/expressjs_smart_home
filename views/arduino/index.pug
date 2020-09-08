@@ -25,4 +25,8 @@ block content
                   label(for="")=i.id
                   input(name="id",type ="text",value=i.id class="form-control" hidden)
                   input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')  
-              td=i.status
+                  img(src='https://www.w3schools.com/images/lamp.jpg' alt='Lamp' width='32' height='32')
+
+              td
+                label=i.status
+                img(src='https://www.w3schools.com/images/lamp.jpg' alt='Lamp' width='32' height='32')
