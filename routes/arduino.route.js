@@ -9,6 +9,8 @@ router.get('/lichsu',controller.lichsu)
 router.get('/xoalichsu',controller.xoalichsu)
 router.get('/getApi',controller.getAPI)
 router.get('/datlich',controller.datlich)
+router.get('/deleteSchedule',controller.deleteSchedule)
+router.get('/deleteScheduleItem/:id',controller.deleteScheduleItem)
 
 //post
 router.post('/postApi',controller.postAPI)

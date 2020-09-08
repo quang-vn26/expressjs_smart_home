@@ -2,17 +2,32 @@ extends ../layouts/common
 block title
   title Schedule
 block cssjs
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js')
-  //- script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js')
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css')
-
+  //- script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+  //- script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js')
+  //- //- script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
+  //- script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js')
+  //- link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
+  //- link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css')
+  link(rel='stylesheet' type='text/css' href='/css/bootstrap-clockpicker.min.css')
+  script(type='text/javascript' src='/js/bootstrap-clockpicker.min.js')
+  //- script(type="text/javascript" src="/js/jquery.min.js")
 block content
   div.container
     .container
+     h3 Schedule
      form.mr-auto(action="/arduino/postSchedule",method = "POST",class="form-group")
+        label(for="") Time
+        //- input#meeting-time(class="form-control",type='datetime-local' name='date' value=date_now min='2019-09-01T00:00' max='2030-09-14T00:00')
+
+        .input-group.clockpicker
+          input.form-control(type='text' value='09:30' name = 'date')
+          span.input-group-addon
+            span.glyphicon.glyphicon-time
+            script(type='text/javascript').
+              $('.clockpicker').clockpicker();
+
+                
+
         label Device
         select.custom-select(name = 'device')
           option(selected='led_1') Led 1
@@ -23,24 +38,49 @@ block content
           option(value='fan_2') Door 1
         label Status
         select.custom-select(name = 'status')
-          option(selected='_bat') On
+          option(value='_bat') On
           option(value='_tat') Off  
           
-        label(for="") Time
-        //- input#meeting-time(class="form-control",type='datetime-local' name='date' value='2020-06-12T19:30' min='2019-09-01T00:00' max='2030-09-14T00:00')
-        #datetimepicker1.input-group.date
-          input.form-control(type='text' name = 'date')
-          span.input-group-addon
-            span.glyphicon.glyphicon-calendar
-            script(type='text/javascript').
-              $(function () {
-              $('#datetimepicker1').datetimepicker();
-              });
+       
+        //- #datetimepicker1.input-group.date
+        //-   input.form-control(type='text' name = 'date')
+        //-   span.input-group-addon
+        //-     span.glyphicon.glyphicon-calendar
+        //-     script(type='text/javascript').
+        //-       $(function () {
+        //-       $('#datetimepicker1').datetimepicker();
+        //-       });
         label(for="") Repeat
         select.custom-select(name = 'repeat')
           option(selected='no') No
-          option(value='everyday') Everyday
-          option(value='weekly') Weekly
-          option(value='select') ....
-        button.mt-2(class='btn btn-primary p-2',type='submit') Booking
+          option(value='Everyday') Everyday
+          option(value='Weekly') Weekly
+          //- option(value='select') ....
+        button.mt-2(class='btn btn-primary p-2',type='submit') Book
         //- bay gio xu li form de insert vao db, xu li lich
+    h3 Schedule View 
+    div.container
+    .container
+      a.nav-link.text-danger(href='/arduino/deleteSchedule') Delete All
+      table.table.table-striped.table-hover
+        thead.bg-primary
+          tr
+            th(scope='col') DEVICE
+            th(scope='col') TIME
+            th(scope='col') STATUS
+            th(scope='col') REPEAT
+            th(scope='col') ACTION
+        tbody
+          each i in arduino
+            tr
+              th(scope='row')=i.device
+              //- td=new Date(i.date).getHours()+':'+new Date(i.date).getMinutes()+' in '+new Date(i.date).toDateString()
+              td=i.date
+              td=i.status
+              td=i.repeat
+              td
+                a(href='/arduino/deleteScheduleItem/'+i.id,class='text-danger') Delete
+
+
+
+

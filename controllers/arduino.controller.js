@@ -3,6 +3,21 @@ var shortid = require('shortid');
 var schedule = require('node-schedule');
 var db = require('../db')
 
+var lich = db.get('schedule').value()
+//3 loai no: set xong xoa, daily:luu lai, weekly:luu lai
+//phan lcih su nen them data ve from web,schedule
+//now su li no repeat: 
+var date_now = new Date().toDateString()
+console.log('date_now is: '+date_now)
+
+lich.map(function(l){
+  if(l.date = date_now) console.log(date_now)
+})
+
+var j = schedule.scheduleJob({hour: 8, minute: 30}, function(){
+  console.log('Time for work!');
+});
+
 var arduino=  db.get('arduino').value()
 module.exports.index = async function (req,res,next) {
   res.render('arduino/index',{
@@ -32,11 +47,31 @@ module.exports.xoalichsu = async function (req,res,next) {
   res.redirect('/arduino/lichsu')
 }
 
-
 module.exports.datlich = function (req,res,next) {
-  res.render('arduino/datlich')
+  console.log('date_now is: '+date_now)
+  var cronExpress = '*/5 * * * * * *';
+  var j = schedule.scheduleJob(cronExpress, function(fireDate){
+  console.log('running job!');
+  console.log(fireDate)
+  });
+
+  var arduino=  db.get('schedule').value()
+  res.render('arduino/datlich',{
+    arduino:arduino,date_now:date_now
+  })
 }
 
+module.exports.deleteSchedule = async function (req,res,next) {
+  db.get('schedule').remove().write();
+  res.redirect('/arduino/datlich')
+}
+module.exports.deleteScheduleItem = async function (req,res,next) {
+  var id = req.params.id
+  console.log('id:'+id)
+  db.get('schedule').remove({id:id}).write();
+  // db.get('schedule').find({id:id}).value()
+  res.redirect('/arduino/datlich')
+}
 
 module.exports.getAPI = async function(req, res) {
   var t =db.get('arduino').value()
@@ -46,8 +81,10 @@ module.exports.getAPI = async function(req, res) {
 
 
 module.exports.postSchedule = async function (req,res,next) {
-  var t = db.get('schedule').push(req.body).write()
-  db.get('schedule').unshift(req.body).write() 
+  req.body.id = shortid.generate();
+  db.get('schedule').unshift(req.body).write()
+  var t =db.get('schedule').value()
+  console.log(t[1].device)
   res.redirect('/arduino/datlich')
 }
 

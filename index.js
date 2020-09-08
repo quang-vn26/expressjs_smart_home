@@ -1,3 +1,4 @@
+// 'use strict'
 require('dotenv').config()
 // console.log(process.env.SESSION_SECRECT)
 var express = require('express')
@@ -16,6 +17,7 @@ var arduinoRouter = require('./routes/arduino.route')
 
 var authMiddleware = require('./middlewares/auth.middleware.js')
 var sessionMiddleware = require('./middlewares/session.middleware');
+var setScheduleMiddleware = require('./middlewares/arduino.middleware')
 
 var app = express()
 var port = process.env.PORT || 3000;
@@ -27,12 +29,15 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(cookieParser(process.env.SESSION_SECRECT))
 app.use(sessionMiddleware);
 
+
 app.use(express.static('public'))
+// app.use(express.static(__dirname+'/public'))
+// app.use(express.static(__dirname + "/staticFiles")); 
  //router
-app.use('/users',authMiddleware.requireAuth,userRouter)
+app.use('/users',setScheduleMiddleware.setSchedule, authMiddleware.requireAuth,userRouter)
 app.use('/login',loginRouter)
 app.use('/logout',logoutRouter)
-app.use('/arduino/',arduinoRouter)
+app.use('/arduino/',setScheduleMiddleware.setSchedule,arduinoRouter)
 
  app.get('/',authMiddleware.requireAuth,function(req,res){
   var arduino=  db.get('arduino').value()
