@@ -1,16 +1,8 @@
-var md5 = require('md5')
 var shortid = require('shortid');
-var schedule = require('node-schedule');
 var db = require('../db')
 
 var lich = db.get('schedule').value()
 var date_now = new Date().toDateString()
-
-
-
-var j = schedule.scheduleJob({hour: 8, minute: 30}, function(){
-  console.log('Time for work!');
-});
 
 var arduino=  db.get('arduino').value()
 module.exports.index = async function (req,res,next) {
@@ -72,7 +64,6 @@ module.exports.postSchedule = async function (req,res,next) {
   req.body.id = shortid.generate();
   db.get('schedule').unshift(req.body).write()
   var t =db.get('schedule').value()
-  console.log(t[1].device)
   res.redirect('/arduino/datlich')
 }
 

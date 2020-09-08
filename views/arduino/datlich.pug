@@ -14,19 +14,29 @@ block cssjs
 block content
   div.container
     .container
-     h3 Schedule
+     h3.text-primary Schedule
      form.mr-auto(action="/arduino/postSchedule",method = "POST",class="form-group")
         label(for="") Time
         //- input#meeting-time(class="form-control",type='datetime-local' name='date' value=date_now min='2019-09-01T00:00' max='2030-09-14T00:00')
-
-        .input-group.clockpicker
-          input.form-control(type='text' value='09:30' name = 'time')
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
-            script(type='text/javascript').
-              $('.clockpicker').clockpicker();
-
-                
+        div.form-inline.clockpicker
+          input.form-group.mb-2.form-control#single-input(value='' placeholder='Now' name='time')
+          button.form-group.mx-sm-3.mb-2.btn.btn-light#check-minutes(type='button') Check the minutes
+          script(type='text/javascript').
+            var input = $('#single-input').clockpicker({
+            placement: 'bottom',
+            align: 'left',
+            autoclose: true,
+            donetext: 'Done',
+            'default': 'now'
+            });
+            // Manually toggle to the minutes view
+            $('#check-minutes').click(function(e){
+            // Have to stop propagation here
+            e.stopPropagation();
+            input.clockpicker('show')
+            .clockpicker('toggleView', 'minutes');
+            });
+      
 
         label Device
         select.custom-select(name = 'device')
@@ -58,12 +68,12 @@ block content
           //- option(value='select') ....
         button.mt-2(class='btn btn-primary p-2',type='submit') Book
         //- bay gio xu li form de insert vao db, xu li lich
-    h3 Schedule View 
+    h3.text-primary Schedule View 
     div.container
     .container
       a.nav-link.text-danger(href='/arduino/deleteSchedule') Delete All
       table.table.table-striped.table-hover
-        thead.bg-primary
+        thead.bg-secondary
           tr
             th(scope='col') DEVICE
             th(scope='col') TIME

@@ -3,17 +3,17 @@
     {
       "id": "led_1",
       "status": "_bat",
-      "date": "2020-09-03T08:44:44.399Z"
+      "date": "2020-09-08T14:33:59.633Z"
     },
     {
       "id": "led_2",
       "status": "_bat",
-      "date": "2020-09-03T08:17:15.614Z"
+      "date": "2020-09-08T14:33:48.860Z"
     },
     {
       "id": "led_3",
-      "status": "_tat",
-      "date": "2020-09-03T08:17:16.580Z"
+      "status": "_bat",
+      "date": "2020-09-08T13:47:36.623Z"
     },
     {
       "id": "led_4",
@@ -33,87 +33,105 @@
   ],
   "schedule": [
     {
-      "time": "09:30",
+      "time": "21:33",
       "device": "led_1",
-      "status": "_bat",
-      "repeat": "No",
-      "date": "Tue Sep 08 2020",
-      "id": "SEJXrnZEo"
-    },
-    {
-      "time": "09:30",
-      "device": "Led 1",
-      "status": "_bat",
-      "repeat": "No",
-      "date": "Tue Sep 08 2020",
-      "id": "jL7SsuqNk"
-    },
-    {
-      "time": "09:30",
-      "device": "led_2",
-      "status": "_bat",
-      "repeat": "No",
-      "date": "Tue Sep 08 2020",
-      "id": "1rONSqJ_J"
-    },
-    {
-      "time": "09:30",
-      "device": "Led 1",
-      "status": "_bat",
-      "repeat": "No",
-      "date": "Tue Sep 08 2020",
-      "id": "exDK-vMJs"
-    },
-    {
-      "time": "16:25",
-      "device": "Led 1",
-      "status": "_bat",
-      "repeat": "No",
-      "date": "Tue Sep 08 2020",
-      "id": "8_TSbX0gB"
-    },
-    {
-      "time": "09:30",
-      "device": "Led 1",
-      "status": "_bat",
-      "repeat": "Weekly",
-      "date": "Tue Sep 08 2020",
-      "id": "1_IkeLnIL"
-    },
-    {
-      "time": "09:30",
-      "device": "Led 1",
       "status": "_bat",
       "repeat": "Everyday",
       "date": "Tue Sep 08 2020",
-      "id": "my91CmpPS"
-    },
-    {
-      "time": "16:14",
-      "device": "Led 1",
-      "status": "_bat",
-      "repeat": "No",
-      "date": "Tue Sep 08 2020",
-      "id": "FROF0cQ2m"
-    },
-    {
-      "time": "16:13",
-      "device": "Led 1",
-      "status": "_bat",
-      "repeat": "No",
-      "date": "Tue Sep 08 2020",
-      "id": "o3CDqetE7"
-    },
-    {
-      "time": "16:12",
-      "device": "Led 1",
-      "status": "_bat",
-      "repeat": "No",
-      "date": "Tue Sep 08 2020",
-      "id": "W3lthIFye"
+      "id": "kmR38yaZZ"
     }
   ],
   "arduino_history": [
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:59.633Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:59.633Z"
+    },
+    {
+      "id": "led_2",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:48.860Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:59.633Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:59.633Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:59.633Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:59.633Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:59.633Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:33:59.633Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:26:28.565Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:26:28.565Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T14:01:40.242Z"
+    },
+    {
+      "id": "led_3",
+      "status": "_bat",
+      "date": "2020-09-08T13:47:36.623Z"
+    },
+    {
+      "id": "led_3",
+      "status": "_tat",
+      "date": "2020-09-08T13:46:41.330Z"
+    },
+    {
+      "id": "led_3",
+      "status": "_bat",
+      "date": "2020-09-08T13:46:00.359Z"
+    },
+    {
+      "id": "led_3",
+      "status": "_bat",
+      "date": "2020-09-08T13:47:36.623Z"
+    },
+    {
+      "id": "led_2",
+      "status": "_tat",
+      "date": "2020-09-08T13:45:06.170Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-08T13:43:35.237Z"
+    },
     {
       "id": "led_1",
       "status": "_bat",
