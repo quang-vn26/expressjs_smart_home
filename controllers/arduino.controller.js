@@ -4,15 +4,9 @@ var schedule = require('node-schedule');
 var db = require('../db')
 
 var lich = db.get('schedule').value()
-//3 loai no: set xong xoa, daily:luu lai, weekly:luu lai
-//phan lcih su nen them data ve from web,schedule
-//now su li no repeat: 
 var date_now = new Date().toDateString()
-console.log('date_now is: '+date_now)
 
-lich.map(function(l){
-  if(l.date = date_now) console.log(date_now)
-})
+
 
 var j = schedule.scheduleJob({hour: 8, minute: 30}, function(){
   console.log('Time for work!');
@@ -48,13 +42,6 @@ module.exports.xoalichsu = async function (req,res,next) {
 }
 
 module.exports.datlich = function (req,res,next) {
-  console.log('date_now is: '+date_now)
-  var cronExpress = '*/5 * * * * * *';
-  var j = schedule.scheduleJob(cronExpress, function(fireDate){
-  console.log('running job!');
-  console.log(fireDate)
-  });
-
   var arduino=  db.get('schedule').value()
   res.render('arduino/datlich',{
     arduino:arduino,date_now:date_now
@@ -81,6 +68,7 @@ module.exports.getAPI = async function(req, res) {
 
 
 module.exports.postSchedule = async function (req,res,next) {
+  req.body.date = date_now
   req.body.id = shortid.generate();
   db.get('schedule').unshift(req.body).write()
   var t =db.get('schedule').value()

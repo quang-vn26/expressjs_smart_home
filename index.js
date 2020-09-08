@@ -34,7 +34,7 @@ app.use(express.static('public'))
 // app.use(express.static(__dirname+'/public'))
 // app.use(express.static(__dirname + "/staticFiles")); 
  //router
-app.use('/users',setScheduleMiddleware.setSchedule, authMiddleware.requireAuth,userRouter)
+app.use('/users',authMiddleware.requireAuth,userRouter)
 app.use('/login',loginRouter)
 app.use('/logout',logoutRouter)
 app.use('/arduino/',setScheduleMiddleware.setSchedule,arduinoRouter)

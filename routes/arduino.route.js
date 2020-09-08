@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var controller = require('../controllers/arduino.controller.js')
+var setScheduleMiddleware = require('../middlewares/arduino.middleware')
 
 //get
 router.get('/',controller.index)

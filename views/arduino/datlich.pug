@@ -20,7 +20,7 @@ block content
         //- input#meeting-time(class="form-control",type='datetime-local' name='date' value=date_now min='2019-09-01T00:00' max='2030-09-14T00:00')
 
         .input-group.clockpicker
-          input.form-control(type='text' value='09:30' name = 'date')
+          input.form-control(type='text' value='09:30' name = 'time')
           span.input-group-addon
             span.glyphicon.glyphicon-time
             script(type='text/javascript').
@@ -30,7 +30,7 @@ block content
 
         label Device
         select.custom-select(name = 'device')
-          option(selected='led_1') Led 1
+          option(value='led_1') Led 1
           option(value='led_2') Led 2
           option(value='led_3') Led 3
           option(value='led_4') Led 4
@@ -75,7 +75,7 @@ block content
             tr
               th(scope='row')=i.device
               //- td=new Date(i.date).getHours()+':'+new Date(i.date).getMinutes()+' in '+new Date(i.date).toDateString()
-              td=i.date
+              td=i.time
               td=i.status
               td=i.repeat
               td

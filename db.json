@@ -33,60 +33,84 @@
   ],
   "schedule": [
     {
-      "date": "09:30",
-      "device": "Led 1",
+      "time": "09:30",
+      "device": "led_1",
       "status": "_bat",
       "repeat": "No",
-      "id": "JFA8o2Dor"
-    },
-    {
       "date": "Tue Sep 08 2020",
+      "id": "SEJXrnZEo"
+    },
+    {
+      "time": "09:30",
       "device": "Led 1",
       "status": "_bat",
       "repeat": "No",
-      "id": "PtajCchGL"
-    },
-    {
       "date": "Tue Sep 08 2020",
-      "device": "Led 1",
-      "status": "_bat",
-      "repeat": "No",
-      "id": "dR9GiqqOd"
+      "id": "jL7SsuqNk"
     },
     {
-      "device": "Led 1",
-      "status": "_bat",
-      "date": "Tue Sep 08 2020",
-      "repeat": "No",
-      "id": "3GMo739Io"
-    },
-    {
+      "time": "09:30",
       "device": "led_2",
       "status": "_bat",
-      "date": "Tue Sep 08 2020",
       "repeat": "No",
-      "id": "RUpCvwes2"
+      "date": "Tue Sep 08 2020",
+      "id": "1rONSqJ_J"
     },
     {
+      "time": "09:30",
       "device": "Led 1",
       "status": "_bat",
-      "date": "Tue Sep 08 2020",
       "repeat": "No",
-      "id": "Zq4FnQL4n"
+      "date": "Tue Sep 08 2020",
+      "id": "exDK-vMJs"
     },
     {
+      "time": "16:25",
       "device": "Led 1",
       "status": "_bat",
-      "date": "Tue Sep 08 2020",
       "repeat": "No",
-      "id": "J4UibUHT3"
+      "date": "Tue Sep 08 2020",
+      "id": "8_TSbX0gB"
     },
     {
+      "time": "09:30",
       "device": "Led 1",
       "status": "_bat",
+      "repeat": "Weekly",
       "date": "Tue Sep 08 2020",
+      "id": "1_IkeLnIL"
+    },
+    {
+      "time": "09:30",
+      "device": "Led 1",
+      "status": "_bat",
+      "repeat": "Everyday",
+      "date": "Tue Sep 08 2020",
+      "id": "my91CmpPS"
+    },
+    {
+      "time": "16:14",
+      "device": "Led 1",
+      "status": "_bat",
       "repeat": "No",
-      "id": "-82JHjpE7"
+      "date": "Tue Sep 08 2020",
+      "id": "FROF0cQ2m"
+    },
+    {
+      "time": "16:13",
+      "device": "Led 1",
+      "status": "_bat",
+      "repeat": "No",
+      "date": "Tue Sep 08 2020",
+      "id": "o3CDqetE7"
+    },
+    {
+      "time": "16:12",
+      "device": "Led 1",
+      "status": "_bat",
+      "repeat": "No",
+      "date": "Tue Sep 08 2020",
+      "id": "W3lthIFye"
     }
   ],
   "arduino_history": [
