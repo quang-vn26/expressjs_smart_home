@@ -5,6 +5,8 @@ var setScheduleMiddleware = require('../middlewares/arduino.middleware')
 
 //get
 router.get('/',controller.index)
+// router.get('/chatbot',controller.chatbot)
+router.get('/status',controller.status)
 router.get('/trangthai',controller.trangthai)
 router.get('/lichsu',controller.lichsu)
 router.get('/xoalichsu',controller.xoalichsu)

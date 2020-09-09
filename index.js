@@ -5,6 +5,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
 var mongoose = require('mongoose');
+var http = require('http');
 mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true,useUnifiedTopology: true });
 var db = require('./db')
 
@@ -21,6 +22,7 @@ var setScheduleMiddleware = require('./middlewares/arduino.middleware')
 
 var app = express()
 var port = process.env.PORT || 3000;
+var server = http.createServer(app);
 app.set('view engine','pug')
 app.set('views','./views')
 
@@ -62,6 +64,63 @@ app.use(function(req, res, next){
 });
 
  //----------------------
- app.listen(port,function(){
-  //console.log('open in port: '+port)
- })
+ 
+
+
+ //for chatbot
+const APP_SECRET = process.env.APP_SECRET;
+const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+
+app.get('/webhook', function(req, res) { // Đây là path để validate tooken bên app facebook gửi qua
+  if (req.query['hub.verify_token'] === VALIDATION_TOKEN) {
+    res.send(req.query['hub.challenge']);
+  }
+  res.send('Error, wrong validation token');
+});
+
+app.post('/webhook', function(req, res) { // Phần sử lý tin nhắn của người dùng gửi đến
+  var entries = req.body.entry;
+  for (var entry of entries) {
+    var messaging = entry.messaging;
+    for (var message of messaging) {
+      var senderId = message.sender.id;
+      if (message.message) {
+        if (message.message.text) {
+          var text = message.message.text;
+          sendMessage(senderId, "Hello!! I'm a bot. Your message: " + text);
+        }
+      }
+    }
+  }
+  res.status(200).send("OK");
+});
+
+// Đây là function dùng api của facebook để gửi tin nhắn
+function sendMessage(senderId, message) {
+  request({
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: {
+      access_token: PAGE_ACCESS_TOKEN,
+    },
+    method: 'POST',
+    json: {
+      recipient: {
+        id: senderId
+      },
+      message: {
+        text: message
+      },
+    }
+  });
+}
+
+app.set('ip', process.env.IP || "0.0.0.0");
+
+//chay server
+server.listen(app.get('port'), app.get('ip'), function() {
+  console.log("Chat bot server listening at %s:%d ", app.get('ip'), app.get('port'));
+});
+// app.listen(port,function(){
+//   //console.log('open in port: '+port)
+//  })

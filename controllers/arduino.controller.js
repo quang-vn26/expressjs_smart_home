@@ -11,6 +11,9 @@ module.exports.index = async function (req,res,next) {
   });
 }
 
+module.exports.status = function (req,res){
+  res.render('arduino/status')
+}
 module.exports.trangthai = async function (req,res,next) {
   var t =db.get('arduino').value()
   var tmp=""
@@ -19,6 +22,7 @@ module.exports.trangthai = async function (req,res,next) {
   })
   res.send(tmp);
 }
+
 
 module.exports.lichsu = async function (req,res,next) {
   let history = db.get('arduino_history').value()
@@ -58,7 +62,11 @@ module.exports.getAPI = async function(req, res) {
 
 };
 
+///--------------
+module.exports.chatbot = function (req,res,next){
+}
 
+// -----------------
 module.exports.postSchedule = async function (req,res,next) {
   req.body.date = date_now
   req.body.id = shortid.generate();

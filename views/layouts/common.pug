@@ -9,10 +9,12 @@ html
     script(src='/js/bootstrap.min.js')
     block cssjs
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
       button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarTogglerDemo03' aria-controls='navbarTogglerDemo03' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       a.navbar-brand(href='/') SmartH
+        img(src="/img/home.svg" width="30" height="30" class="d-inline-block align-top" alt="") 
+          
       #navbarTogglerDemo03.collapse.navbar-collapse
         ul.navbar-nav.mr-auto.mt-2.mt-lg-0
           li.nav-item.active
@@ -20,13 +22,13 @@ html
               | Home 
               span.sr-only (current)
           li.nav-item
-            a.nav-link(href='/arduino/trangthai') Status 
-          li.nav-item
-            a.nav-link(href='/arduino/getAPI') Json
-          li.nav-item
             a.nav-link(href='/arduino/lichsu') History  
           li.nav-item
             a.nav-link(href='/arduino/datlich') Schedule
+          li.nav-item
+            a.nav-link(href='/arduino/trangthai') Status on Arduino
+          li.nav-item
+            a.nav-link(href='/arduino/getAPI') Json  
           li.nav-item
             a.nav-link(href='/users') Users  
       if muser
@@ -35,6 +37,9 @@ html
             p.float-left= muser.name
           form.form-inline.my-2.my-lg-0(action="/logout",method = "get",class="form-group")
             button.btn.btn-outline-danger.my-2.my-sm-0(type='submit') Logout    
+    div
+      script(src='https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1')
+      df-messenger(intent='WELCOME' chat-title='ChatBot' agent-id='78cda6d7-1f3c-4e51-be8c-fd67c94c52ff' language-code='en')       
     .container.pt-5      
       block content
       block footer

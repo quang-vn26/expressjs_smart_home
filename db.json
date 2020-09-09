@@ -7,7 +7,7 @@
     },
     {
       "id": "led_2",
-      "status": "_bat",
+      "status": "_tat",
       "date": "2020-09-08T14:33:48.860Z"
     },
     {
@@ -33,6 +33,14 @@
   ],
   "schedule": [
     {
+      "time": "10:35",
+      "device": "led_1",
+      "status": "_bat",
+      "repeat": "Everyday",
+      "date": "Wed Sep 09 2020",
+      "id": "j6lpG8wDc"
+    },
+    {
       "time": "21:33",
       "device": "led_1",
       "status": "_bat",
@@ -42,6 +50,21 @@
     }
   ],
   "arduino_history": [
+    {
+      "id": "led_1",
+      "status": "_bat",
+      "date": "2020-09-09T08:18:17.171Z"
+    },
+    {
+      "id": "led_2",
+      "status": "_tat",
+      "date": "2020-09-09T08:02:10.255Z"
+    },
+    {
+      "id": "led_1",
+      "status": "_tat",
+      "date": "2020-09-09T08:02:07.306Z"
+    },
     {
       "id": "led_1",
       "status": "_bat",

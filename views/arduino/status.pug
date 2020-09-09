@@ -1,0 +1,6 @@
+extends ../layouts/common
+block content
+  div.container
+    .container
+        script(src='https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1')
+        df-messenger(intent='WELCOME' chat-title='ChatBot' agent-id='78cda6d7-1f3c-4e51-be8c-fd67c94c52ff' language-code='en')
