@@ -3,15 +3,17 @@ var router = express.Router()
 var controller = require('../controllers/arduino.controller.js')
 var setScheduleMiddleware = require('../middlewares/arduino.middleware')
 
+var authMiddleware = require('../middlewares/auth.middleware.js')
+
 //get
-router.get('/',controller.index)
+router.get('/',authMiddleware.requireAuth,controller.index)
 // router.get('/chatbot',controller.chatbot)
 router.get('/status',controller.status)
 router.get('/trangthai',controller.trangthai)
-router.get('/lichsu',controller.lichsu)
-router.get('/xoalichsu',controller.xoalichsu)
+router.get('/lichsu',authMiddleware.requireAuth,controller.lichsu)
+router.get('/xoalichsu',authMiddleware.requireAuth,controller.xoalichsu)
 router.get('/getApi',controller.getAPI)
-router.get('/datlich',controller.datlich)
+router.get('/datlich',authMiddleware.requireAuth,controller.datlich)
 router.get('/deleteSchedule',controller.deleteSchedule)
 router.get('/deleteScheduleItem/:id',controller.deleteScheduleItem)
 
