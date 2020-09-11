@@ -70,8 +70,22 @@ module.exports.chatbot = function (req,res){
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
   // console.log('chatbot')
+  var chatbot_device = req.body.queryResult.parameters.device
+  var chatbot_status = req.body.queryResult.parameters.status
+
+  var c1 = chatbot_device;
+  var c2  = chatbot_status;
+  if(c1 == 'led_1' || c1== 'led_2' || c1 == 'led_3' || c1 == 'led_4' || c1 == 'fan_1'||c1.toLowerCase() == 'fan_2'){
+    var chat_status_on_db = '_bat'
+    if(c2=='off') chatbot_status_on_db ='_tat'
+    db.get('arduino')
+    .find({ id: c1 })
+    .assign({ status:chatbot_status_on_db})
+    .write()
+    db.get('arduino_history').unshift(req.body).write() 
+  }
   return res.json({
-    fulfillmentText: req.body.queryResult.parameters.device +'now is: '+req.body.queryResult.parameters.status,
+    fulfillmentText:  chatbot_device +' now is: '+chatbot_status,
     source: 'chatbot'
   })
 }
