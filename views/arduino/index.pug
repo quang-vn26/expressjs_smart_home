@@ -1,7 +1,10 @@
 extends ../layouts/common
+block title
+  title Home
 block content
   div.container
     .container
+      br
       table.table
         thead.thead-light
           tr
@@ -14,19 +17,21 @@ block content
           -var arr=['LED 1','LED 2','LED 3','LED 4','FAN','DOOR']
           each i in arduino
             tr
-              th(scope='row')=arr[count++]
+              th.text-info(scope='row')=arr[count++]
               td 
                 form.form-inline.form-group(method='POST' action='/arduino/postApi')
-                  label(for="")=i.id
                   input(name="id",type ="text",value=i.id class="form-control" hidden)
                   input.btn.btn-primary.ml-4(type='submit' name='status' value='Bật')
               td 
                 form.form-inline.form-group(method='POST' action='/arduino/postApi')
-                  label(for="")=i.id
                   input(name="id",type ="text",value=i.id class="form-control" hidden)
                   input.btn.btn-danger.ml-4(type='submit' name='status' value='Tắt')  
-                  img(src='https://www.w3schools.com/images/lamp.jpg' alt='Lamp' width='32' height='32')
+              if i.status == '_tat'
+                td.inline-block
+                  div.text-danger='Tắt'
+                  img(src='./img/led_off.svg' alt='Lamp' width='32' height='32')
+              else
+                td.inline-block
+                  div.text-success='Bật' 
+                  img(src='./img/led_on.svg' alt='Lamp' width='32' height='32')
 
-              td
-                label=i.status
-                img(src='https://www.w3schools.com/images/lamp.jpg' alt='Lamp' width='32' height='32')

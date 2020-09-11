@@ -1,3 +1,4 @@
+const request = require('request');
 var db = require('../db')
 module.exports.setSchedule = async function (req,res, next) {
     console.log('Set schedule')
@@ -47,4 +48,27 @@ module.exports.setSchedule = async function (req,res, next) {
     }
     next()
   }
-  
+  module.exports.old_web = async function (req,res, next) {
+    request('http://thegioicuabanvn.000webhostapp.com/getAPI.php', function (error, response, body) {
+       
+        obj = JSON.parse(body)
+        obj.map(x=>{
+            console.log('X: '+x.led_id+'  log:'+x.status)
+            let old_status = x.status;
+            let insert_status='_bat'
+            if(old_status == x.led_id+'_tat') {
+                insert_status = '_tat'
+                console.log('tat')
+            }
+            let update_data = db.get('arduino')
+            .find({ id: x.led_id })
+            .assign({ status:insert_status})
+            .write()
+
+
+        })
+        // console.log(obj)
+        // console.log('body:', body);
+    });
+    next()
+  }

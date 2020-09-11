@@ -38,7 +38,7 @@ app.use(express.static('public'))
 app.use('/users',authMiddleware.requireAuth,userRouter)
 app.use('/login',loginRouter)
 app.use('/logout',logoutRouter)
-app.use('/arduino/',setScheduleMiddleware.setSchedule,arduinoRouter)
+app.use('/arduino/',setScheduleMiddleware.old_web,setScheduleMiddleware.setSchedule,arduinoRouter)
 
  app.get('/',authMiddleware.requireAuth,function(req,res){
   var arduino=  db.get('arduino').value()
