@@ -2,7 +2,7 @@
   "arduino": [
     {
       "id": "led_1",
-      "status": "_bat",
+      "status": "_tat",
       "date": "2020-09-08T14:33:59.633Z"
     },
     {
@@ -50,6 +50,11 @@
     }
   ],
   "arduino_history": [
+    {
+      "id": "led_1",
+      "status": "_tat",
+      "date": "2020-09-11T12:54:45.125Z"
+    },
     {
       "id": "led_1",
       "status": "_bat",
