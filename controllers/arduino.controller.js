@@ -76,8 +76,8 @@ module.exports.chatbot = function (req,res){
   var c1 = chatbot_device;
   var c2  = chatbot_status;
   if(c1 == 'led_1' || c1== 'led_2' || c1 == 'led_3' || c1 == 'led_4' || c1 == 'fan_1'||c1 == 'fan_2'){
-    var chat_status_on_db
-    if(c2=='on') chat_status_on_db = '_bat';
+    var chatbot_status_on_db
+    if(c2=='on') chatbot_status_on_db = '_bat';
     if(c2=='off') chatbot_status_on_db ='_tat';
     db.get('arduino')
     .find({ id: c1 })
