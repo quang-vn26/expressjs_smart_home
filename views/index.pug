@@ -14,7 +14,7 @@ block content
             th(scope='col') STATUS
         tbody
           -var count=0
-          -var arr=['LED 1','LED 2','LED 3','LED 4','FAN','DOOR']
+          -var arr=['LIVING ROOM','GARAGE','FLOOR 2','SENSOR','FAN','DOOR']
           each i in arduino
             tr
               th.text-info(scope='row')=arr[count++]
