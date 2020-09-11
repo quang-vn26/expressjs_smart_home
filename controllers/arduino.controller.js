@@ -86,7 +86,7 @@ module.exports.chatbot = function (req,res){
     // db.get('arduino_history').unshift(req.body).write() 
   }
   return res.json({
-    fulfillmentText:  chatbot_device +' now is: '+chatbot_status,
+    fulfillmentText:' Now it is: '+chatbot_status,
     source: 'chatbot'
   })
 }
