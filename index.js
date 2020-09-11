@@ -30,6 +30,7 @@ app.use(cookieParser(process.env.SESSION_SECRECT))
 app.use(sessionMiddleware);
 
 
+
 app.use(express.static('public'))
 // app.use(express.static(__dirname+'/public'))
 // app.use(express.static(__dirname + "/staticFiles")); 

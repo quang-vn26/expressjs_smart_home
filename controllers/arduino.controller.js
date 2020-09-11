@@ -1,4 +1,6 @@
+var express = require('express')
 var shortid = require('shortid');
+var http = require('http')
 var db = require('../db')
 
 var lich = db.get('schedule').value()
@@ -63,7 +65,15 @@ module.exports.getAPI = async function(req, res) {
 };
 
 ///--------------
-module.exports.chatbot = function (req,res,next){
+module.exports.chatbot = function (req,res){
+  let app = express()
+  app.use(express.json())
+  app.use(express.urlencoded({ extended: true }))
+  // console.log('chatbot')
+  return res.json({
+    fulfillmentText: req.body.queryResult.parameters.device +'now is: '+req.body.queryResult.parameters.status,
+    source: 'chatbot'
+  })
 }
 
 // -----------------
