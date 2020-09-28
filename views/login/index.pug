@@ -9,9 +9,9 @@ block content
       .alert.alert-danger= error
     //- each erro
   form(action="/login",method = "POST",class="form-group")
-    label(for="") Email
+    label(for="") Email(name@gmail.com)
     input(name="email",type ="text",value=values ? values.email : "",class="form-control")
-    label(for="") Password
+    label(for="") Password(name)
     input(name="pw",type ="password",value=values ? values.pw : "",class="form-control")
     br
     button(class='btn btn-primary') Login
