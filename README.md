@@ -1,6 +1,6 @@
 # expressjs-hello
 
-This an project i learn about nodejs and expressjs
+This a project i learn about nodejs and expressjs
 
 ## Installation
 
