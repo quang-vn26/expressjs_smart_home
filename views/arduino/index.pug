@@ -16,8 +16,11 @@ block content
           -var count=0
           -var arr=['LED 1','LED 2','LED 3','LED 4','FAN','DOOR']
           each i in arduino
+            -var tmp = arr[count]
+            if tmp == 5 continue
             tr
               th.text-info(scope='row')=arr[count++]
+             
               td 
                 form.form-inline.form-group(method='POST' action='/arduino/postApi')
                   input(name="id",type ="text",value=i.id class="form-control" hidden)
@@ -33,5 +36,5 @@ block content
               else
                 td.inline-block
                   div.text-success='Bật' 
-                  img(src='./img/led_on.svg' alt='Lamp' width='32' height='32')
+                  img(src='./img/led_on.svg' alt='Lamp' width='32' height='32')  
 
